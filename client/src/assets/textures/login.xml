@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:f8a9bce6d05b98cf8f2e48b172cff6d0$ -->
+<TextureAtlas imagePath="login.png">
+    <SubTexture name="background" x="2" y="2" width="468" height="346"/>
+    <SubTexture name="exit" x="306" y="350" width="150" height="80"/>
+    <SubTexture name="loginDown" x="154" y="350" width="150" height="80"/>
+    <SubTexture name="loginUp" x="2" y="350" width="150" height="80"/>
+    <SubTexture name="voiceOver" x="131" y="432" width="123" height="123" frameX="-2" frameY="-2" frameWidth="127" frameHeight="127"/>
+    <SubTexture name="voiceUp" x="2" y="432" width="127" height="127"/>
+</TextureAtlas>
