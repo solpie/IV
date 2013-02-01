@@ -1,10 +1,11 @@
 package mainGame.model.events
 {
-	import flash.events.Event;
+import ex.EventFLA;
+
+import flash.events.Event;
 	
-	public class AppEvent extends Event
+	public class AppEvent extends EventFLA
 	{
-		
 		/**
 		 *程序启动 
 		 */		
@@ -13,11 +14,10 @@ package mainGame.model.events
 		 *全局键盘输入事件 payload keyboradEvent 
 		 */		
 		public static const APP_INPUT_KEY:String="App key";
-		
-	
+		public static const APP_INPUT_RIGHT:String="App right click";
 		public function AppEvent(type:String,payload:Object=null)
 		{
-			super(type, false, false);
+			super(type, payload);
 		}
 	}
 }

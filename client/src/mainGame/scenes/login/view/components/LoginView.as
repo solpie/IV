@@ -97,7 +97,7 @@ package mainGame.scenes.login.view.components
 				(btnExit.getChildAt(1) as Image).alpha=1;
 				Starling.juggler.add(t);
 			}
-			
+			//mouse out
 			var touch:Touch=e.getTouch(btnExit);
 			if(!touch)
 			{

@@ -66,7 +66,7 @@ package mainGame.scenes.dialogue.view.components
 			btnNext.height=30;
 			addChild(btnNext);
 			btnNext.addEventListener(Event.TRIGGERED,onClick);
-			Starling.current.nativeStage.addEventListener(MouseEvent.RIGHT_CLICK,onRightClick);
+
 //		btnNext.addEventListener(MouseEvent.r
 			//
 			_delayCall=new DelayedCall(onTick,0.4);

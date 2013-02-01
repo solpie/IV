@@ -3,8 +3,10 @@ package mainGame
 	import assets.feathers.themes.MetalWorksMobileTheme;
 	
 	import ex.SpriteSTL;
-	
-	import flash.ui.Keyboard;
+
+import flash.events.MouseEvent;
+
+import flash.ui.Keyboard;
 	import flash.utils.getDefinitionByName;
 	
 	import mainGame.scenes.dialogue.view.components.DialogueView;
@@ -91,6 +93,7 @@ package mainGame
 			
 			addEventListener(Event.TRIGGERED, onButtonTriggered);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKey);
+
 		}
 		
 		private function showMainMenu():void
@@ -109,7 +112,8 @@ package mainGame
 			else if (event.keyCode == Keyboard.X)
 				Starling.context.dispose();
 		}
-		
+
+
 		private function onButtonTriggered(event:Event):void
 		{
 			var button:Button = event.target as Button;

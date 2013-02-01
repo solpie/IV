@@ -8,10 +8,12 @@ package mainGame.model
 	
 	public class AppModel extends Actor
 	{
-		public var asset:AssetManager;	
+		public var asset:AssetManager;
+        public var rightTouchList:Array;
 		public function AppModel()
 		{
 			super();
+            rightTouchList=new Array();
 //			asset = new AssetManager();
 //			asset.verbose = Capabilities.isDebugger;
 //			asset.enqueue(EmbeddedAssets);

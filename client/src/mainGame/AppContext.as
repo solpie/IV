@@ -1,7 +1,11 @@
 package mainGame
 {
-	
-	import mainGame.model.AppModel;
+
+import flash.events.MouseEvent;
+import flash.geom.Point;
+
+import mainGame.controller.RightClickCommand;
+import mainGame.model.AppModel;
 	import mainGame.model.events.AppEvent;
 	import mainGame.scenes.dialogue.controller.DialogueCommand;
 	import mainGame.scenes.dialogue.model.DialogueModel;
@@ -15,8 +19,10 @@ package mainGame
 	import mainGame.service.ByteArrayService;
 	
 	import org.robotlegs.mvcs.StarlingContext;
-	
-	import starling.display.DisplayObjectContainer;
+
+import starling.core.Starling;
+
+import starling.display.DisplayObjectContainer;
 	
 	public class AppContext extends StarlingContext
 	{
@@ -33,9 +39,15 @@ package mainGame
 			mapController();
 			mapService();
 			dispatchEvent(new AppEvent(AppEvent.APP_STARTUP,"start up"));
+            Starling.current.nativeStage.addEventListener(MouseEvent.RIGHT_CLICK,onRightClick);
 			trace("[Context]App Start up");
 			super.startup();
 		}
+        private function onRightClick(e:MouseEvent):void
+        {
+            dispatchEvent(new AppEvent(AppEvent.APP_INPUT_RIGHT,new Point(e.localX,e.localY)));
+            trace(this, "onRightClick");
+        }
 		
 		private function mapMembership():void
 		{
@@ -57,8 +69,10 @@ package mainGame
 		
 		private function mapController():void
 		{
-			commandMap.mapEvent(DialogueEvent.DIALOGUE_END,DialogueCommand);	
-			commandMap.mapEvent(LoginEvent.LOGIN,LoginCommand);	
+			commandMap.mapEvent(AppEvent.APP_INPUT_RIGHT,RightClickCommand);
+
+			commandMap.mapEvent(DialogueEvent.DIALOGUE_END,DialogueCommand);
+			commandMap.mapEvent(LoginEvent.LOGIN,LoginCommand);
 		}
 		
 		private function mapService():void

@@ -14,6 +14,7 @@ package
 	import starling.utils.AssetManager;
 	
 	
+//	[SWF(width="1280", height="720", frameRate="60", backgroundColor="#222222")]
 	[SWF(width="1024", height="768", frameRate="60", backgroundColor="#222222")]
 	public class Web extends Sprite
 	{
@@ -62,6 +63,5 @@ package
 			// game will first load resources, then start menu
 			game.start(asset);
 		}
-		
 	}
 }
