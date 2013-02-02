@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="client">
+  <component name="FlexBuildConfigurationManager" active="debug">
     <configurations>
-      <configuration name="client" pure-as="true" main-class="Client" output-file="Client.swf" output-folder="$MODULE_DIR$/out/production/client">
+      <configuration name="debug" pure-as="true" main-class="Web" output-file="Web.swf" output-folder="$MODULE_DIR$/out/production/debug" wrapper-template-path="$MODULE_DIR$/html-template">
         <dependencies target-player="11.2">
           <entries>
-            <entry library-id="8e22754d-17e5-4e72-9415-10f42ce212b6">
+            <entry library-id="32cd4444-e214-490a-918c-59009d0ab652">
               <dependency linkage="Merged" />
             </entry>
           </entries>
           <sdk name="4.6.0" />
         </dependencies>
-        <compiler-options />
+        <compiler-options>
+          <option name="additionalOptions" value="-swf-version=15" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="release" pure-as="true" main-class="Web" output-file="index.swf" output-folder="$MODULE_DIR$/out/production/release" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template" skip-build="true">
+        <dependencies target-player="11.2">
+          <entries>
+            <entry library-name="libs" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.6.0" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="false" />
+          </map>
+          <option name="additionalOptions" value="-swf-version=15 -debug=false" />
+        </compiler-options>
         <packaging-air-desktop />
         <packaging-android />
         <packaging-ios />
@@ -22,13 +43,13 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="true" />
     </content>
     <orderEntry type="jdk" jdkName="4.6.0" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="8e22754d-17e5-4e72-9415-10f42ce212b6" />
+        <properties id="32cd4444-e214-490a-918c-59009d0ab652" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/libs" />
         </CLASSES>
@@ -37,6 +58,7 @@
         <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="libs" level="application" />
   </component>
 </module>
 
