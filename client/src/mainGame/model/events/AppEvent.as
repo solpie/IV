@@ -15,6 +15,7 @@ import flash.events.Event;
 		 */		
 		public static const APP_INPUT_KEY:String="App key";
 		public static const APP_INPUT_RIGHT:String="App right click";
+		public static const APP_INPUT_OVER_BUTTON:String="mouse over bottun";
 		public function AppEvent(type:String,payload:Object=null)
 		{
 			super(type, payload);

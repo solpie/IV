@@ -1,8 +1,8 @@
-package mainGame.scenes.login.view
+package modules.scenes.login.view
 {
 import mainGame.model.AppModel;
-import mainGame.scenes.login.model.events.LoginEvent;
-	import mainGame.scenes.login.view.components.LoginView;
+import modules.scenes.login.model.events.LoginEvent;
+	import modules.scenes.login.view.components.LoginView;
 
 import org.osmf.layout.ScaleModeUtils;
 
@@ -24,7 +24,7 @@ import org.robotlegs.mvcs.StarlingMediator;
 		override public function onRegister():void
 		{
 			view.btnLogin.addEventListener(Event.TRIGGERED,onClick);
-            model.rightTouchList.push(view.btnLogin);
+//            model.rightTouchList.push(view.btnLogin);
 		}
 		
 		private function onClick(e:Event):void

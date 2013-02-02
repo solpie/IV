@@ -1,4 +1,4 @@
-package mainGame.scenes.dialogue.view.components
+package modules.scenes.dialogue.view.components
 {
 	import ex.SpriteSTL;
 	

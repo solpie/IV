@@ -9,6 +9,7 @@ package mainGame.controller {
 import flash.events.MouseEvent;
 
 import mainGame.model.AppModel;
+import mainGame.model.events.AppEvent;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
@@ -19,6 +20,8 @@ import starling.display.DisplayObject;
 public class RightClickCommand extends StarlingCommand {
     [Inject]
     public var modol:AppModel;
+    [Inject]
+    public var event:AppEvent;
     public function RightClickCommand() {
         super();
     }
@@ -26,9 +29,12 @@ public class RightClickCommand extends StarlingCommand {
     {
         for each(var obj:DisplayObject in modol.rightTouchList)
         {
-//            obj
+            if(obj.bounds.contains(event.payload.x,event.payload.y))
+            {
+                trace(this, "right click on ",obj);
+                (modol.rightTouchFunc[obj] as Function)();
+            }
         }
-        trace(this, "RightClickCommand");
     }
 }
 }

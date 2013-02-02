@@ -9,8 +9,8 @@ import flash.events.MouseEvent;
 import flash.ui.Keyboard;
 	import flash.utils.getDefinitionByName;
 	
-	import mainGame.scenes.dialogue.view.components.DialogueView;
-	import mainGame.scenes.login.view.components.LoginView;
+	import modules.scenes.dialogue.view.components.DialogueView;
+	import modules.scenes.login.view.components.LoginView;
 	
 	import org.robotlegs.mvcs.StarlingContext;
 	

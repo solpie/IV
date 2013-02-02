@@ -1,4 +1,4 @@
-package mainGame.scenes.dialogue.model.events
+package modules.scenes.dialogue.model.events
 {
 	import ex.EventFLA;
 	

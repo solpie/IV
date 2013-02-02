@@ -1,4 +1,4 @@
-package mainGame.scenes.login.model.events
+package modules.scenes.login.model.events
 {
 	import ex.EventFLA;
 	
