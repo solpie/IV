@@ -1,4 +1,4 @@
-package modules.scenes.dialogue.model
+package mainGame.modules.scenes.dialogue.model
 {
 	import flashx.textLayout.formats.WhiteSpaceCollapse;
 	

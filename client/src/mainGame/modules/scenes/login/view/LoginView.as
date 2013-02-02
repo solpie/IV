@@ -1,4 +1,4 @@
-package modules.scenes.login.view
+package mainGame.modules.scenes.login.view
 {
 	import ex.ButtonFEA;
 	import ex.SpriteSTL;
@@ -10,7 +10,7 @@ package modules.scenes.login.view
 	import flash.geom.Point;
 	
 	import mainGame.Game;
-	import modules.scenes.login.model.events.LoginEvent;
+	import mainGame.modules.scenes.login.model.events.LoginEvent;
 	
 	import starling.animation.DelayedCall;
 	import starling.animation.Tween;

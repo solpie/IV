@@ -8,17 +8,17 @@ import mainGame.controller.RightClickCommand;
 import mainGame.model.GameModel;
 	import mainGame.model.events.GameEvent;
 
-import modules.config.ConfigMediator;
-import modules.config.view.ConfigView;
-import modules.scenes.dialogue.controller.DialogueCommand;
-	import modules.scenes.dialogue.model.DialogueModel;
-	import modules.scenes.dialogue.model.events.DialogueEvent;
-	import modules.scenes.dialogue.DialogueViewMediator;
-	import modules.scenes.dialogue.view.DialogueView;
-	import modules.scenes.login.controller.LoginCommand;
-	import modules.scenes.login.model.events.LoginEvent;
-	import modules.scenes.login.LoginViewMediator;
-	import modules.scenes.login.view.LoginView;
+import mainGame.modules.config.ConfigMediator;
+import mainGame.modules.config.view.ConfigView;
+import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
+	import mainGame.modules.scenes.dialogue.model.DialogueModel;
+	import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
+	import mainGame.modules.scenes.dialogue.DialogueViewMediator;
+	import mainGame.modules.scenes.dialogue.view.DialogueView;
+	import mainGame.modules.scenes.login.controller.LoginCommand;
+	import mainGame.modules.scenes.login.model.events.LoginEvent;
+	import mainGame.modules.scenes.login.LoginViewMediator;
+	import mainGame.modules.scenes.login.view.LoginView;
 	import mainGame.service.ByteArrayService;
 	
 	import org.robotlegs.mvcs.StarlingContext;

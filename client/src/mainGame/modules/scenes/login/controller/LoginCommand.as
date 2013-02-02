@@ -1,4 +1,4 @@
-package modules.scenes.login.controller
+package mainGame.modules.scenes.login.controller
 {
 	import mainGame.Game;
 	

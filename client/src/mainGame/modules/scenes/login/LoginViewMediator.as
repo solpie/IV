@@ -1,10 +1,10 @@
-package modules.scenes.login
+package mainGame.modules.scenes.login
 {
-import modules.scenes.login.view.*;
+import mainGame.modules.scenes.login.view.*;
 
 import mainGame.model.GameModel;
-import modules.scenes.login.model.events.LoginEvent;
-	import modules.scenes.login.view.LoginView;
+import mainGame.modules.scenes.login.model.events.LoginEvent;
+	import mainGame.modules.scenes.login.view.LoginView;
 
 import org.osmf.layout.ScaleModeUtils;
 
