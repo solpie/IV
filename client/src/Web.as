@@ -10,7 +10,6 @@ package
 	
 	import starling.core.Starling;
 	import starling.events.Event;
-	import starling.textures.Texture;
 	import starling.utils.AssetManager;
 	
 	
@@ -19,11 +18,11 @@ package
 	public class Web extends Sprite
 	{
 		private var mStarling:Starling;
-		
+
 		public function Web()
 		{
 			if (stage) start();
-			else addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+            else addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
 		
 		private function start():void
