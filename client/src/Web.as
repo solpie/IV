@@ -5,7 +5,7 @@ package
 	import flash.display.StageScaleMode;
 	import flash.system.Capabilities;
 	
-	import mainGame.AppContext;
+	import mainGame.GameContext;
 	import mainGame.Game;
 	
 	import starling.core.Starling;

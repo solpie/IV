@@ -9,12 +9,12 @@ import starling.display.DisplayObject;
 
 import starling.utils.AssetManager;
 
-public class AppModel extends Actor
+public class GameModel extends Actor
 {
     public var asset:AssetManager;
     public var rightTouchList:Array;
     public var rightTouchFunc:Dictionary;
-    public function AppModel()
+    public function GameModel()
     {
         super();
         rightTouchList=new Array();

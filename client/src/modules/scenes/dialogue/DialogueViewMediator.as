@@ -1,12 +1,12 @@
-package modules.scenes.dialogue.view
+package modules.scenes.dialogue
 {
 import flash.text.TextField;
 
-import mainGame.model.AppModel;
+import mainGame.model.GameModel;
 
 import modules.scenes.dialogue.model.DialogueModel;
 import modules.scenes.dialogue.model.events.DialogueEvent;
-import modules.scenes.dialogue.view.components.DialogueView;
+import modules.scenes.dialogue.view.DialogueView;
 
 import org.robotlegs.mvcs.StarlingMediator;
 
@@ -17,7 +17,7 @@ public class DialogueViewMediator extends StarlingMediator
     [Inject]
     public var view:DialogueView;
     [Inject]
-    public var model:AppModel;
+    public var model:GameModel;
 
     public function DialogueViewMediator(){super();}
 
@@ -34,7 +34,8 @@ public class DialogueViewMediator extends StarlingMediator
 
     private function onRightClickBg():void {
         //todo 弹出右键菜单
-        trace(this, " 弹出右键菜单")
+        trace(this, " 弹出右键菜单");
+
     }
 
     private function onTouchBg(e:Event):void {

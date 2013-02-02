@@ -5,17 +5,20 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 
 import mainGame.controller.RightClickCommand;
-import mainGame.model.AppModel;
-	import mainGame.model.events.AppEvent;
-	import modules.scenes.dialogue.controller.DialogueCommand;
+import mainGame.model.GameModel;
+	import mainGame.model.events.GameEvent;
+
+import modules.config.ConfigMediator;
+import modules.config.view.ConfigView;
+import modules.scenes.dialogue.controller.DialogueCommand;
 	import modules.scenes.dialogue.model.DialogueModel;
 	import modules.scenes.dialogue.model.events.DialogueEvent;
-	import modules.scenes.dialogue.view.DialogueViewMediator;
-	import modules.scenes.dialogue.view.components.DialogueView;
+	import modules.scenes.dialogue.DialogueViewMediator;
+	import modules.scenes.dialogue.view.DialogueView;
 	import modules.scenes.login.controller.LoginCommand;
 	import modules.scenes.login.model.events.LoginEvent;
-	import modules.scenes.login.view.LoginViewMediator;
-	import modules.scenes.login.view.components.LoginView;
+	import modules.scenes.login.LoginViewMediator;
+	import modules.scenes.login.view.LoginView;
 	import mainGame.service.ByteArrayService;
 	
 	import org.robotlegs.mvcs.StarlingContext;
@@ -24,9 +27,9 @@ import starling.core.Starling;
 
 import starling.display.DisplayObjectContainer;
 	
-	public class AppContext extends StarlingContext
+	public class GameContext extends StarlingContext
 	{
-		public function AppContext(contextView:DisplayObjectContainer=null, autoStartup:Boolean=true)
+		public function GameContext(contextView:DisplayObjectContainer=null, autoStartup:Boolean=true)
 		{
 			super(contextView, autoStartup);
 		}
@@ -38,14 +41,14 @@ import starling.display.DisplayObjectContainer;
 			mapView();
 			mapController();
 			mapService();
-			dispatchEvent(new AppEvent(AppEvent.APP_STARTUP,"start up"));
+			dispatchEvent(new GameEvent(GameEvent.APP_STARTUP,"start up"));
             Starling.current.nativeStage.addEventListener(MouseEvent.RIGHT_CLICK,onRightClick);
 			trace("[Context]App Start up");
 			super.startup();
 		}
         private function onRightClick(e:MouseEvent):void
         {
-            dispatchEvent(new AppEvent(AppEvent.APP_INPUT_RIGHT,new Point(e.localX,e.localY)));
+            dispatchEvent(new GameEvent(GameEvent.APP_INPUT_RIGHT,new Point(e.localX,e.localY)));
             trace(this, "onRightClick");
         }
 		
@@ -55,7 +58,7 @@ import starling.display.DisplayObjectContainer;
 		}
 		private function mapModel():void
 		{
-			injector.mapSingleton(AppModel);
+			injector.mapSingleton(GameModel);
 			injector.mapSingleton(DialogueModel);
 			//service
 			injector.mapSingleton(ByteArrayService);
@@ -65,11 +68,12 @@ import starling.display.DisplayObjectContainer;
 		{
 			mediatorMap.mapView(DialogueView,DialogueViewMediator);
 			mediatorMap.mapView(LoginView,LoginViewMediator);
+			mediatorMap.mapView(ConfigView,ConfigMediator);
 		}
 		
 		private function mapController():void
 		{
-			commandMap.mapEvent(AppEvent.APP_INPUT_RIGHT,RightClickCommand);
+			commandMap.mapEvent(GameEvent.APP_INPUT_RIGHT,RightClickCommand);
 
 			commandMap.mapEvent(DialogueEvent.DIALOGUE_END,DialogueCommand);
 			commandMap.mapEvent(LoginEvent.LOGIN,LoginCommand);

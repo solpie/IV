@@ -1,4 +1,4 @@
-package modules.scenes.dialogue.view.components
+package modules.scenes.dialogue.view
 {
 	
 	import ex.SpriteSTL;
@@ -27,6 +27,7 @@ package modules.scenes.dialogue.view.components
 		private var _delayCall:DelayedCall;
 		private var _name:Quad;//Image
 		public var btnNext:Button;
+//        public var menu:
 		//		private var _dialogue:
 		public function DialogueView(parent:DisplayObjectContainer=null)
 		{

@@ -1,8 +1,10 @@
-package modules.scenes.login.view
+package modules.scenes.login
 {
-import mainGame.model.AppModel;
+import modules.scenes.login.view.*;
+
+import mainGame.model.GameModel;
 import modules.scenes.login.model.events.LoginEvent;
-	import modules.scenes.login.view.components.LoginView;
+	import modules.scenes.login.view.LoginView;
 
 import org.osmf.layout.ScaleModeUtils;
 
@@ -15,7 +17,7 @@ import org.robotlegs.mvcs.StarlingMediator;
 		[Inject] 
 		public var view:LoginView;
         [Inject]
-        public var model:AppModel;
+        public var model:GameModel;
 		public function LoginViewMediator()
 		{
 			super();

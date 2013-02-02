@@ -8,8 +8,8 @@
 package mainGame.controller {
 import flash.events.MouseEvent;
 
-import mainGame.model.AppModel;
-import mainGame.model.events.AppEvent;
+import mainGame.model.GameModel;
+import mainGame.model.events.GameEvent;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
@@ -19,9 +19,9 @@ import starling.display.DisplayObject;
 
 public class RightClickCommand extends StarlingCommand {
     [Inject]
-    public var modol:AppModel;
+    public var modol:GameModel;
     [Inject]
-    public var event:AppEvent;
+    public var event:GameEvent;
     public function RightClickCommand() {
         super();
     }

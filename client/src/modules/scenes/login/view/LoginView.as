@@ -1,4 +1,4 @@
-package modules.scenes.login.view.components
+package modules.scenes.login.view
 {
 	import ex.ButtonFEA;
 	import ex.SpriteSTL;

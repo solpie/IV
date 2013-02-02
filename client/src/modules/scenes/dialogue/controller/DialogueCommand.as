@@ -2,7 +2,7 @@ package modules.scenes.dialogue.controller
 {
 	import modules.scenes.dialogue.model.DialogueModel;
 	import modules.scenes.dialogue.model.events.DialogueEvent;
-	import modules.scenes.dialogue.view.components.DialogueView;
+	import modules.scenes.dialogue.view.DialogueView;
 	
 	import org.robotlegs.mvcs.StarlingCommand;
 	

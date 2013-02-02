@@ -9,8 +9,8 @@ import flash.events.MouseEvent;
 import flash.ui.Keyboard;
 	import flash.utils.getDefinitionByName;
 	
-	import modules.scenes.dialogue.view.components.DialogueView;
-	import modules.scenes.login.view.components.LoginView;
+	import modules.scenes.dialogue.view.DialogueView;
+	import modules.scenes.login.view.LoginView;
 	
 	import org.robotlegs.mvcs.StarlingContext;
 	
@@ -50,7 +50,7 @@ import flash.ui.Keyboard;
 		
 		public function start(asset:AssetManager):void
 		{
-			_starlingContext = new AppContext(this);
+			_starlingContext = new GameContext(this);
 			new MetalWorksMobileTheme(this.stage);
 //			this.theme.setInitializerForClass(
 			sAssets = asset;
