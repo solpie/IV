@@ -10,6 +10,10 @@ import ex.SpriteSTL;
 
 import feathers.controls.Button;
 
+import flash.display.BlendMode;
+import flash.net.SharedObject;
+import flash.sampler.NewObjectSample;
+
 import mainGame.Game;
 
 import starling.animation.Tween;
@@ -22,6 +26,7 @@ import starling.events.Event;
 
 public class ConfigView extends SpriteSTL {
     private var _bg:Quad;
+    public var btnSave:Button=new Button();
     public var btnClose:Button;
     private var _tween:Tween;
     private const _delay:Number=0.4;
@@ -39,6 +44,10 @@ public class ConfigView extends SpriteSTL {
         _bg.alpha=0.6;
         addChild(_bg);
 
+        btnSave.label="Save";
+        btnSave.setSize(100,30);
+        addChild(btnSave);
+
         btnClose=new Button();
         btnClose.label="Close";
         btnClose.width=100;
@@ -49,7 +58,6 @@ public class ConfigView extends SpriteSTL {
         btnClose.addEventListener(Event.TRIGGERED,function():void{Game.hideConfig();})
         addChild(btnClose);
         //animation
-
         _tween=new Tween(this,_delay);
         this.alpha=0;
     }

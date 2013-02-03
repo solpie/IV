@@ -24,14 +24,12 @@ package mainGame.service.interfaces
 		 * 		e.target.removeEventListener(Event.COMPLETE,onLoad);
 		 * 		e.target.data
 		 * }
-		 * 
-		 */			
+		 */
 		function browseOpen(loadedCallback:Function):void
 		/**
 		 *浏览保存文件 
 		 * @param bytes 文件数据
-		 * 
-		 */		 
+		 */
 		function browseSave(bytes:ByteArray):void
 	}
 }

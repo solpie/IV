@@ -4,12 +4,15 @@ package mainGame
 import flash.events.MouseEvent;
 import flash.geom.Point;
 
+import mainGame.controller.GameStartCommand;
+
 import mainGame.controller.RightClickCommand;
 import mainGame.model.GameModel;
 	import mainGame.model.events.GameEvent;
 
 import mainGame.modules.config.ConfigMediator;
 import mainGame.modules.config.view.ConfigView;
+import mainGame.modules.player.model.PlayerModel;
 import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
 	import mainGame.modules.scenes.dialogue.model.DialogueModel;
 	import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
@@ -20,8 +23,9 @@ import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
 	import mainGame.modules.scenes.login.LoginViewMediator;
 	import mainGame.modules.scenes.login.view.LoginView;
 	import mainGame.service.ByteArrayService;
-	
-	import org.robotlegs.mvcs.StarlingContext;
+import mainGame.service.ShareDataService;
+
+import org.robotlegs.mvcs.StarlingContext;
 
 import starling.core.Starling;
 
@@ -59,9 +63,11 @@ import starling.display.DisplayObjectContainer;
 		private function mapModel():void
 		{
 			injector.mapSingleton(GameModel);
+			injector.mapSingleton(PlayerModel);
 			injector.mapSingleton(DialogueModel);
 			//service
 			injector.mapSingleton(ByteArrayService);
+			injector.mapSingleton(ShareDataService);
 		}
 		
 		private function mapView():void
@@ -73,7 +79,8 @@ import starling.display.DisplayObjectContainer;
 		
 		private function mapController():void
 		{
-			commandMap.mapEvent(GameEvent.APP_INPUT_RIGHT,RightClickCommand);
+            commandMap.mapEvent(GameEvent.APP_STARTUP,GameStartCommand);
+            commandMap.mapEvent(GameEvent.APP_INPUT_RIGHT,RightClickCommand);
 
 			commandMap.mapEvent(DialogueEvent.DIALOGUE_END,DialogueCommand);
 			commandMap.mapEvent(LoginEvent.LOGIN,LoginCommand);
