@@ -36,7 +36,7 @@ import starling.utils.AssetManager;
 			// this event is dispatched when stage3D is set up
 			mStarling.addEventListener(Event.ROOT_CREATED, onRootCreated);
 		}
-		
+
 		private function onAddedToStage(event:Object):void
 		{
 			stage.scaleMode = StageScaleMode.SHOW_ALL;

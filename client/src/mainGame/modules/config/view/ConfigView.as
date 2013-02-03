@@ -10,16 +10,10 @@ import ex.SpriteSTL;
 
 import feathers.controls.Button;
 
-import flash.display.BlendMode;
-import flash.net.SharedObject;
-import flash.sampler.NewObjectSample;
-
 import mainGame.Game;
 
 import starling.animation.Tween;
-
 import starling.core.Starling;
-
 import starling.display.DisplayObjectContainer;
 import starling.display.Quad;
 import starling.events.Event;

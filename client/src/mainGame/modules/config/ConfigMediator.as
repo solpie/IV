@@ -6,7 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 package mainGame.modules.config {
-import mainGame.Game;
 import mainGame.modules.config.view.ConfigView;
 import mainGame.modules.player.model.PlayerModel;
 import mainGame.service.ShareDataService;
