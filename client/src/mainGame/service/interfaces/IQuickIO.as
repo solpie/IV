@@ -1,9 +1,8 @@
 package mainGame.service.interfaces
 {
-	import flash.events.Event;
-	import flash.utils.ByteArray;
+import flash.utils.ByteArray;
 
-	public interface IQuickIO
+public interface IQuickIO
 	{
 		/**
 		 * 加载url

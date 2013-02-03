@@ -6,14 +6,10 @@
  * To change this template use File | Settings | File Templates.
  */
 package mainGame.controller {
-import flash.events.MouseEvent;
-
 import mainGame.model.GameModel;
 import mainGame.model.events.GameEvent;
 
 import org.robotlegs.mvcs.StarlingCommand;
-
-import starling.core.Starling;
 
 import starling.display.DisplayObject;
 

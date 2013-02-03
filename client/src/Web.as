@@ -1,18 +1,16 @@
 package
 {
-	import flash.display.Sprite;
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
-	import flash.system.Capabilities;
-	
-	import mainGame.GameContext;
-	import mainGame.Game;
-	
-	import starling.core.Starling;
-	import starling.events.Event;
-	import starling.utils.AssetManager;
-	
-	
+import flash.display.Sprite;
+import flash.display.StageAlign;
+import flash.display.StageScaleMode;
+import flash.system.Capabilities;
+
+import mainGame.Game;
+
+import starling.core.Starling;
+import starling.events.Event;
+import starling.utils.AssetManager;
+
 //	[SWF(width="1280", height="720", frameRate="60", backgroundColor="#222222")]
 	[SWF(width="1024", height="768", frameRate="60", backgroundColor="#222222")]
 	public class Web extends Sprite

@@ -1,12 +1,11 @@
 package mainGame.modules.scenes.dialogue.controller
 {
-	import mainGame.modules.scenes.dialogue.model.DialogueModel;
-	import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
-	import mainGame.modules.scenes.dialogue.view.DialogueView;
-	
-	import org.robotlegs.mvcs.StarlingCommand;
-	
-	public class DialogueCommand extends StarlingCommand
+import mainGame.modules.scenes.dialogue.model.DialogueModel;
+import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
+
+import org.robotlegs.mvcs.StarlingCommand;
+
+public class DialogueCommand extends StarlingCommand
 	{
 		[Inject] 
 		public var model:DialogueModel;

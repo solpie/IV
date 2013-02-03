@@ -5,33 +5,30 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 
 import mainGame.controller.GameStartCommand;
-
 import mainGame.controller.RightClickCommand;
 import mainGame.model.GameModel;
-	import mainGame.model.events.GameEvent;
-
+import mainGame.model.events.GameEvent;
 import mainGame.modules.config.ConfigMediator;
 import mainGame.modules.config.view.ConfigView;
 import mainGame.modules.player.model.PlayerModel;
+import mainGame.modules.scenes.dialogue.DialogueViewMediator;
 import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
-	import mainGame.modules.scenes.dialogue.model.DialogueModel;
-	import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
-	import mainGame.modules.scenes.dialogue.DialogueViewMediator;
-	import mainGame.modules.scenes.dialogue.view.DialogueView;
-	import mainGame.modules.scenes.login.controller.LoginCommand;
-	import mainGame.modules.scenes.login.model.events.LoginEvent;
-	import mainGame.modules.scenes.login.LoginViewMediator;
-	import mainGame.modules.scenes.login.view.LoginView;
-	import mainGame.service.ByteArrayService;
+import mainGame.modules.scenes.dialogue.model.DialogueModel;
+import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
+import mainGame.modules.scenes.dialogue.view.DialogueView;
+import mainGame.modules.scenes.login.LoginViewMediator;
+import mainGame.modules.scenes.login.controller.LoginCommand;
+import mainGame.modules.scenes.login.model.events.LoginEvent;
+import mainGame.modules.scenes.login.view.LoginView;
+import mainGame.service.ByteArrayService;
 import mainGame.service.ShareDataService;
 
 import org.robotlegs.mvcs.StarlingContext;
 
 import starling.core.Starling;
-
 import starling.display.DisplayObjectContainer;
-	
-	public class GameContext extends StarlingContext
+
+public class GameContext extends StarlingContext
 	{
 		public function GameContext(contextView:DisplayObjectContainer=null, autoStartup:Boolean=true)
 		{

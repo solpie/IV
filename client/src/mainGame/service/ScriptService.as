@@ -1,16 +1,11 @@
 package mainGame.service
 {
-	import flash.desktop.NativeApplication;
-	import flash.desktop.NativeProcess;
-	import flash.desktop.NativeProcessStartupInfo;
-	import flash.events.IOErrorEvent;
-	import flash.events.NativeProcessExitEvent;
-	import flash.events.ProgressEvent;
-	import flash.filesystem.File;
-	
-	import org.robotlegs.mvcs.Actor;
-	
-	public class ScriptService extends Actor
+import flash.events.IOErrorEvent;
+import flash.events.ProgressEvent;
+
+import org.robotlegs.mvcs.Actor;
+
+public class ScriptService extends Actor
 	{
 		private var process:NativeProcess;
 		private var _callback:Function;

@@ -1,8 +1,8 @@
 package mainGame.modules.scenes.login.model.events
 {
-	import ex.EventFLA;
-	
-	public class LoginEvent extends EventFLA
+import ex.EventFLA;
+
+public class LoginEvent extends EventFLA
 	{
 		public static const LOGIN:String="登陆游戏";
 		public static const EXIT:String="退出游戏";

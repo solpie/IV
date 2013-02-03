@@ -1,21 +1,19 @@
 package mainGame.service
 {
-	import flash.errors.IOError;
-	import flash.events.Event;
-	import flash.events.IOErrorEvent;
-	import flash.events.TimerEvent;
-	import flash.net.FileReference;
-	import flash.net.URLLoader;
-	import flash.net.URLLoaderDataFormat;
-	import flash.net.URLRequest;
-	import flash.utils.ByteArray;
-	import flash.utils.Timer;
-	
-	import mainGame.service.interfaces.IQuickIO;
-	
-	import org.robotlegs.mvcs.Actor;
-	
-	/**
+import flash.errors.IOError;
+import flash.events.Event;
+import flash.events.IOErrorEvent;
+import flash.net.FileReference;
+import flash.net.URLLoader;
+import flash.net.URLLoaderDataFormat;
+import flash.net.URLRequest;
+import flash.utils.ByteArray;
+
+import mainGame.service.interfaces.IQuickIO;
+
+import org.robotlegs.mvcs.Actor;
+
+/**
 	 * 读写二进制数据
 	 * @author marnon
 	 */	

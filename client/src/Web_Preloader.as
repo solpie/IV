@@ -1,16 +1,16 @@
 package 
 {
-	import flash.display.DisplayObject;
-	import flash.display.MovieClip;
-	import flash.display.Shape;
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
-	import flash.events.Event;
-	import flash.utils.getDefinitionByName;
-	
-	import starling.utils.Color;
-	
-    // To show a Preloader while the SWF is being transferred from the server, 
+import flash.display.DisplayObject;
+import flash.display.MovieClip;
+import flash.display.Shape;
+import flash.display.StageAlign;
+import flash.display.StageScaleMode;
+import flash.events.Event;
+import flash.utils.getDefinitionByName;
+
+import starling.utils.Color;
+
+// To show a Preloader while the SWF is being transferred from the server,
     // set this class as your 'default application' and add the following 
     // compiler argument: '-frame StartupFrame Demo_Web'
     

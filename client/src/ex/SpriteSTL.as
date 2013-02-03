@@ -1,9 +1,9 @@
 package ex
 {
-	import starling.display.DisplayObjectContainer;
-	import starling.display.Sprite;
-	
-	public class SpriteSTL extends Sprite
+import starling.display.DisplayObjectContainer;
+import starling.display.Sprite;
+
+public class SpriteSTL extends Sprite
 	{
 		public function SpriteSTL(parent:DisplayObjectContainer=null)
 		{

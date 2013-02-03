@@ -24,65 +24,64 @@
  */
 package assets.feathers.themes
 {
-	import feathers.controls.Button;
-	import feathers.controls.ButtonGroup;
-	import feathers.controls.Callout;
-	import feathers.controls.Check;
-	import feathers.controls.GroupedList;
-	import feathers.controls.Header;
-	import feathers.controls.ImageLoader;
-	import feathers.controls.Label;
-	import feathers.controls.List;
-	import feathers.controls.PageIndicator;
-	import feathers.controls.PickerList;
-	import feathers.controls.ProgressBar;
-	import feathers.controls.Radio;
-	import feathers.controls.Screen;
-	import feathers.controls.ScrollText;
-	import feathers.controls.Scroller;
-	import feathers.controls.SimpleScrollBar;
-	import feathers.controls.Slider;
-	import feathers.controls.TabBar;
-	import feathers.controls.TextInput;
-	import feathers.controls.ToggleSwitch;
-	import feathers.controls.popups.CalloutPopUpContentManager;
-	import feathers.controls.popups.VerticalCenteredPopUpContentManager;
-	import feathers.controls.renderers.BaseDefaultItemRenderer;
-	import feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer;
-	import feathers.controls.renderers.DefaultGroupedListItemRenderer;
-	import feathers.controls.renderers.DefaultListItemRenderer;
-	import feathers.controls.text.StageTextTextEditor;
-	import feathers.controls.text.TextFieldTextRenderer;
-	import feathers.core.DisplayListWatcher;
-	import feathers.core.FeathersControl;
-	import feathers.core.PopUpManager;
-	import feathers.display.Scale3Image;
-	import feathers.display.Scale9Image;
-	import feathers.display.TiledImage;
-	import feathers.layout.VerticalLayout;
-	import feathers.skins.ImageStateValueSelector;
-	import feathers.skins.Scale9ImageStateValueSelector;
-	import feathers.skins.StandardIcons;
-	import feathers.system.DeviceCapabilities;
-	import feathers.textures.Scale3Textures;
-	import feathers.textures.Scale9Textures;
-	
-	import flash.display.BitmapData;
-	import flash.geom.Rectangle;
-	import flash.text.TextFormat;
-	
-	import starling.core.Starling;
-	import starling.display.DisplayObject;
-	import starling.display.DisplayObjectContainer;
-	import starling.display.Image;
-	import starling.display.Quad;
-	import starling.events.Event;
-	import starling.events.ResizeEvent;
-	import starling.text.TextField;
-	import starling.textures.Texture;
-	import starling.textures.TextureAtlas;
+import feathers.controls.Button;
+import feathers.controls.ButtonGroup;
+import feathers.controls.Callout;
+import feathers.controls.Check;
+import feathers.controls.GroupedList;
+import feathers.controls.Header;
+import feathers.controls.ImageLoader;
+import feathers.controls.Label;
+import feathers.controls.List;
+import feathers.controls.PageIndicator;
+import feathers.controls.PickerList;
+import feathers.controls.ProgressBar;
+import feathers.controls.Radio;
+import feathers.controls.Screen;
+import feathers.controls.ScrollText;
+import feathers.controls.Scroller;
+import feathers.controls.SimpleScrollBar;
+import feathers.controls.Slider;
+import feathers.controls.TabBar;
+import feathers.controls.TextInput;
+import feathers.controls.ToggleSwitch;
+import feathers.controls.popups.CalloutPopUpContentManager;
+import feathers.controls.popups.VerticalCenteredPopUpContentManager;
+import feathers.controls.renderers.BaseDefaultItemRenderer;
+import feathers.controls.renderers.DefaultGroupedListHeaderOrFooterRenderer;
+import feathers.controls.renderers.DefaultGroupedListItemRenderer;
+import feathers.controls.renderers.DefaultListItemRenderer;
+import feathers.controls.text.StageTextTextEditor;
+import feathers.controls.text.TextFieldTextRenderer;
+import feathers.core.DisplayListWatcher;
+import feathers.core.FeathersControl;
+import feathers.core.PopUpManager;
+import feathers.display.Scale3Image;
+import feathers.display.Scale9Image;
+import feathers.display.TiledImage;
+import feathers.layout.VerticalLayout;
+import feathers.skins.ImageStateValueSelector;
+import feathers.skins.Scale9ImageStateValueSelector;
+import feathers.skins.StandardIcons;
+import feathers.system.DeviceCapabilities;
+import feathers.textures.Scale3Textures;
+import feathers.textures.Scale9Textures;
 
-	public class MetalWorksMobileTheme extends DisplayListWatcher
+import flash.display.BitmapData;
+import flash.geom.Rectangle;
+import flash.text.TextFormat;
+
+import starling.core.Starling;
+import starling.display.DisplayObject;
+import starling.display.DisplayObjectContainer;
+import starling.display.Image;
+import starling.display.Quad;
+import starling.events.Event;
+import starling.events.ResizeEvent;
+import starling.textures.Texture;
+import starling.textures.TextureAtlas;
+
+public class MetalWorksMobileTheme extends DisplayListWatcher
 	{
 		[Embed(source="/assets/feathers/images/metalworks.png")]
 		protected static const ATLAS_IMAGE:Class;

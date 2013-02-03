@@ -3,27 +3,17 @@ package mainGame.modules.scenes.login.view
 import ex.ButtonFEA;
 import ex.SpriteSTL;
 
-import feathers.controls.Button;
-import feathers.layout.VerticalLayout;
-
-import flash.events.MouseEvent;
-import flash.geom.Point;
-
 import mainGame.Constants;
-
 import mainGame.Game;
 import mainGame.modules.scenes.login.model.events.LoginEvent;
 
-import starling.animation.DelayedCall;
 import starling.animation.Tween;
 import starling.core.Starling;
 import starling.display.DisplayObjectContainer;
 import starling.display.Image;
 import starling.display.Quad;
-import starling.events.Event;
 import starling.events.Touch;
 import starling.events.TouchEvent;
-import starling.events.TouchPhase;
 
 public class LoginView extends SpriteSTL
 {

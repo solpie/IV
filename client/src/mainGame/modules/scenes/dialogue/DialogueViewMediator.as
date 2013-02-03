@@ -1,12 +1,7 @@
 package mainGame.modules.scenes.dialogue
 {
-import flash.text.TextField;
-
 import mainGame.Game;
-
 import mainGame.model.GameModel;
-
-import mainGame.modules.scenes.dialogue.model.DialogueModel;
 import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
 import mainGame.modules.scenes.dialogue.view.DialogueView;
 

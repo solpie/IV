@@ -1,18 +1,17 @@
 package mainGame.modules.scenes.dialogue.view
 {
-	import ex.SpriteSTL;
-	
-	import mainGame.Game;
-	
-	import starling.animation.DelayedCall;
-	import starling.animation.Transitions;
-	import starling.animation.Tween;
-	import starling.core.Starling;
-	import starling.display.DisplayObjectContainer;
-	import starling.display.Image;
-	import starling.display.Quad;
-	
-	public class Avatar extends SpriteSTL
+import ex.SpriteSTL;
+
+import mainGame.Game;
+
+import starling.animation.DelayedCall;
+import starling.animation.Tween;
+import starling.core.Starling;
+import starling.display.DisplayObjectContainer;
+import starling.display.Image;
+import starling.display.Quad;
+
+public class Avatar extends SpriteSTL
 	{
 		private var _q:Quad;
 		private var lihui:Image;

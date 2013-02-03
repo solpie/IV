@@ -2,9 +2,7 @@ package mainGame.model.events
 {
 import ex.EventFLA;
 
-import flash.events.Event;
-	
-	public class GameEvent extends EventFLA
+public class GameEvent extends EventFLA
 	{
 		/**
 		 *程序启动 

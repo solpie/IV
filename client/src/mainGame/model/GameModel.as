@@ -1,12 +1,10 @@
 package mainGame.model
 {
-import flash.system.Capabilities;
 import flash.utils.Dictionary;
 
 import org.robotlegs.mvcs.Actor;
 
 import starling.display.DisplayObject;
-
 import starling.utils.AssetManager;
 
 public class GameModel extends Actor

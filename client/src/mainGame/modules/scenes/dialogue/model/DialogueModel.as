@@ -1,10 +1,8 @@
 package mainGame.modules.scenes.dialogue.model
 {
-	import flashx.textLayout.formats.WhiteSpaceCollapse;
-	
-	import org.robotlegs.mvcs.Actor;
-	
-	public class DialogueModel extends Actor
+import org.robotlegs.mvcs.Actor;
+
+public class DialogueModel extends Actor
 	{
 		/**
 		 * 

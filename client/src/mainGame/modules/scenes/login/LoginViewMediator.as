@@ -1,18 +1,14 @@
 package mainGame.modules.scenes.login
 {
-import mainGame.modules.scenes.login.view.*;
-
 import mainGame.model.GameModel;
 import mainGame.modules.scenes.login.model.events.LoginEvent;
-	import mainGame.modules.scenes.login.view.LoginView;
-
-import org.osmf.layout.ScaleModeUtils;
+import mainGame.modules.scenes.login.view.LoginView;
 
 import org.robotlegs.mvcs.StarlingMediator;
-	
-	import starling.events.Event;
-	
-	public class LoginViewMediator extends StarlingMediator
+
+import starling.events.Event;
+
+public class LoginViewMediator extends StarlingMediator
 	{
 		[Inject] 
 		public var view:LoginView;

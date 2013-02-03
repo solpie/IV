@@ -1,13 +1,12 @@
 package mainGame.modules.scenes.dialogue.view
 {
-	import ex.SpriteSTL;
-	
-	import starling.animation.DelayedCall;
-	import starling.display.DisplayObjectContainer;
-	import starling.display.Sprite;
-	import starling.text.TextField;
-	
-	public class DialogueArea extends SpriteSTL
+import ex.SpriteSTL;
+
+import starling.animation.DelayedCall;
+import starling.display.DisplayObjectContainer;
+import starling.text.TextField;
+
+public class DialogueArea extends SpriteSTL
 	{
 		private var _dialogue:String;
 		private var _dialoguePages:Array;
