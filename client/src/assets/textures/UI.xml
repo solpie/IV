@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:478f4bb471382e450ab7503f8ff9dc6f$ -->
+<TextureAtlas imagePath="UI.png">
+    <SubTexture name="dialogue" x="2" y="2" width="948" height="269"/>
+</TextureAtlas>

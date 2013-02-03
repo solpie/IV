@@ -29,9 +29,9 @@ public class DialogueViewMediator extends StarlingMediator
         eventMap.mapListener(eventDispatcher,DialogueEvent.E_DIALOGUE,onUpdateDialogue);
         //view to event
         view.addEventListener(Event.COMPLETE,onDialogueClick);
-        view.background.addEventListener(Event.TRIGGERED,onTouchBg);
+//        view.addEventListener(DialogueEvent.CLICK_ON_BG,onTouchBg);
         //right click
-        model.addRightClickHandle(view.background,onRightClickBg);
+        model.addRightClickHandle(view.dialogueMask,onRightClickBg);
     }
 
     private function onRightClickBg():void {

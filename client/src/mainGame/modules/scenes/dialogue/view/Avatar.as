@@ -28,7 +28,7 @@ package mainGame.modules.scenes.dialogue.view
 		
 		private function initUI():void
 		{
-			_q=new Quad(400,600);
+			_q=new Quad(400,800);
 			_q.color=0x884455;
 			addChild(_q);
 		}

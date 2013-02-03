@@ -132,7 +132,6 @@ public class Game extends SpriteSTL
     private function showScene(name:String):void
     {
         if (mCurrentScene) return;
-
         var sceneClass:Class = getDefinitionByName(name) as Class;
         mCurrentScene = new sceneClass() as DialogueView;
         mMainMenu.removeFromParent();
@@ -150,9 +149,8 @@ public class Game extends SpriteSTL
         if(!scnConfig)
         {
             scnConfig=new ConfigView(_this);
-            scnConfig.show(_this);
         }
-        else _this.addChild(scnConfig);
+        scnConfig.show(_this);
     }
 
     public static function hideConfig():void {

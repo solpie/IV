@@ -7,11 +7,14 @@ package mainGame.modules.scenes.dialogue.view
 	import feathers.controls.Label;
 	
 	import flash.events.MouseEvent;
-	
-	import starling.animation.DelayedCall;
+
+import mainGame.Game;
+
+import starling.animation.DelayedCall;
 	import starling.core.Starling;
 	import starling.display.DisplayObjectContainer;
-	import starling.display.Image;
+import starling.display.Image;
+import starling.display.Image;
 	import starling.display.Quad;
 	import starling.events.Event;
 	import starling.events.Touch;
@@ -22,38 +25,55 @@ package mainGame.modules.scenes.dialogue.view
 	{
 		//      	private var _dialogueArea:DialogueArea;
 		private var _avatar:Avatar;
-        public var background:Quad=new Quad(800,300);
+        public var dialogueMask:Quad=new Quad(0,0);
+        private var dialogueUI:Image;
 		private var _dialogue:Label;
 		private var _delayCall:DelayedCall;
-		private var _name:Quad;//Image
+		private var _name:Label;//Image
 		public var btnNext:Button;
 //        public var menu:
 		//		private var _dialogue:
 		public function DialogueView(parent:DisplayObjectContainer=null)
 		{
 			super(parent);
-			init();   
+			init();
+            addListener();
 		}
+
+    private function addListener():void {
+        btnNext.addEventListener(Event.TRIGGERED,onClick);
+//        background.addEventListener(Event.TRIGGERED,onClick);
+    }
 		
 		private function init():void
 		{
-
 			_avatar=new Avatar();
 			_avatar.y=-200;
 			_avatar.x=300;
 			addChild(_avatar);
-			
-			background.y=400;
-			background.color=0x00ddc6;
-			addChild(background);
-			
-			_name=new Quad(100,30);
-			_name.y=background.y-_name.height;
+
+            dialogueUI=new Image(Game.assets.getTexture("dialogue"));
+            dialogueUI.y = 400;
+            addChild(dialogueUI);
+
+			dialogueMask.y=dialogueUI.y;
+            dialogueMask.x = dialogueUI.x;
+            dialogueMask.width=dialogueUI.width;
+            dialogueMask.height=dialogueUI.height;
+//			background.color=0x00ddc6;
+            dialogueMask.alpha=0;
+			addChild(dialogueMask);
+
+			_name=new Label();
+            _name.text="Name";
+			_name.y=dialogueMask.y+22;
+			_name.x=dialogueMask.x+52;
 			addChild(_name);
 			
 			_dialogue=new Label();
 			_dialogue.width=120;
-			_dialogue.y=background.y;
+			_dialogue.y=dialogueMask.y+80;
+			_dialogue.x=dialogueMask.x+22;
 			_dialogue.text="<b><font color='#FFeecc'>1234567890\nThe quick brown fox jumps over the lazy dog</font></b>\n中文中文";
 
             addChild(_dialogue);
@@ -65,17 +85,9 @@ package mainGame.modules.scenes.dialogue.view
 			btnNext.width=100;
 			btnNext.height=30;
 			addChild(btnNext);
-			btnNext.addEventListener(Event.TRIGGERED,onClick);
-
-//		btnNext.addEventListener(MouseEvent.r
-			//
 			_delayCall=new DelayedCall(onTick,0.4);
-//			btnNext.addEventListener(
-//			Starling.current.nativeStage.addEventListener(MouseEvent.CLICK,onClick);
 		}
 
-
-		
 		public function showDialogue(text:String,avatarId:String):void
 		{
 			_dialogue.text=text;

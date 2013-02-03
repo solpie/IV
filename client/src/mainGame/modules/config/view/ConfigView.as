@@ -24,8 +24,11 @@ public class ConfigView extends SpriteSTL {
     private var _bg:Quad;
     public var btnClose:Button;
     private var _tween:Tween;
+    private const _delay:Number=0.4;
+    private var this_:SpriteSTL;
     public function ConfigView(parent:DisplayObjectContainer = null) {
         super(parent);
+        this_=this;
         init();
 
     }
@@ -47,25 +50,33 @@ public class ConfigView extends SpriteSTL {
         addChild(btnClose);
         //animation
 
-        _tween=new Tween(this, 3);
+        _tween=new Tween(this,_delay);
+        this.alpha=0;
     }
     public function show(parent:*):void
     {
-        this.alpha=0;
+        if(this.alpha!=0) return;
+//
+        parent.addChild(this_);
         _tween.fadeTo(1);
         _tween.onComplete=function():void{
-            parent.addChild(this);
-            trace(this,"show config")
+            _tween.reset(this_, _delay);
+            trace(this,"show config...")
         };
+
         Starling.juggler.add(_tween);
+
     }
 
     public function hide(parent:*):void
     {
-        this.alpha=1;
-        _tween.animate("alpha",0)
-//        _tween.fadeTo(0);
-        _tween.onComplete=function():void{parent.removeChild(this);};
+        if(this.alpha!=1)return;
+        _tween.fadeTo(0);
+        _tween.onComplete=function():void{
+            parent.removeChild(this_);
+            _tween.reset(this_,_delay);
+            trace(this,"hide config");
+        };
         Starling.juggler.add(_tween);
     }
 }

@@ -26,7 +26,13 @@ package
 		
 		[Embed(source="/assets/textures/login.png")]
 		public static const login:Class;
-		
+
+        [Embed(source="/assets/textures/UI.xml", mimeType="application/octet-stream")]
+        public static const UI_xml:Class;
+
+		[Embed(source="/assets/textures/UI.png")]
+		public static const UI:Class;
+
 //
 //        // Compressed textures
 //        
