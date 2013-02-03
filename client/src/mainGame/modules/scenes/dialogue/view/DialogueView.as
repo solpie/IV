@@ -1,31 +1,25 @@
 package mainGame.modules.scenes.dialogue.view
 {
-	
-	import ex.SpriteSTL;
-	
-	import feathers.controls.Button;
-	import feathers.controls.Label;
-	
-	import flash.events.MouseEvent;
+
+import ex.SpriteSTL;
+
+import feathers.controls.Button;
+import feathers.controls.Label;
 
 import mainGame.Game;
 
 import starling.animation.DelayedCall;
-	import starling.core.Starling;
-	import starling.display.DisplayObjectContainer;
+import starling.display.DisplayObjectContainer;
 import starling.display.Image;
-import starling.display.Image;
-	import starling.display.Quad;
-	import starling.events.Event;
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
-	
-	public class DialogueView extends SpriteSTL
+import starling.display.Quad;
+import starling.events.Event;
+import starling.events.TouchEvent;
+
+public class DialogueView extends SpriteSTL
 	{
 		//      	private var _dialogueArea:DialogueArea;
 		private var _avatar:Avatar;
-        public var dialogueMask:Quad=new Quad(0,0);
+        public var dialogueMask:Quad=new Quad(1,1);
         private var dialogueUI:Image;
 		private var _dialogue:Label;
 		private var _delayCall:DelayedCall;
@@ -41,7 +35,7 @@ import starling.display.Image;
 		}
 
     private function addListener():void {
-        btnNext.addEventListener(Event.TRIGGERED,onClick);
+        this.addEventListener(Event.TRIGGERED,onClick);
 //        background.addEventListener(Event.TRIGGERED,onClick);
     }
 		
@@ -60,7 +54,6 @@ import starling.display.Image;
             dialogueMask.x = dialogueUI.x;
             dialogueMask.width=dialogueUI.width;
             dialogueMask.height=dialogueUI.height;
-//			background.color=0x00ddc6;
             dialogueMask.alpha=0;
 			addChild(dialogueMask);
 
@@ -78,13 +71,13 @@ import starling.display.Image;
 
             addChild(_dialogue);
 			
-			btnNext=new Button();
-			btnNext.label="click";
-			btnNext.x=700;
-			btnNext.y=700;
-			btnNext.width=100;
-			btnNext.height=30;
-			addChild(btnNext);
+//			btnNext=new Button();
+//			btnNext.label="click";
+//			btnNext.x=700;
+//			btnNext.y=700;
+//			btnNext.width=100;
+//			btnNext.height=30;
+//			addChild(btnNext);
 			_delayCall=new DelayedCall(onTick,0.4);
 		}
 
