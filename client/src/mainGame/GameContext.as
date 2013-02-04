@@ -12,7 +12,9 @@ import mainGame.modules.config.ConfigMediator;
 import mainGame.modules.config.view.ConfigView;
 import mainGame.modules.player.model.PlayerModel;
 import mainGame.modules.scenes.dialogue.DialogueViewMediator;
+import mainGame.modules.scenes.dialogue.OptionViewMediator;
 import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
+import mainGame.modules.scenes.dialogue.controller.SelectOptionCommand;
 import mainGame.modules.scenes.dialogue.model.DialogueModel;
 import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
 import mainGame.modules.scenes.dialogue.view.DialogueView;
@@ -71,7 +73,7 @@ public class GameContext extends StarlingContext
 		private function mapView():void
 		{
 			mediatorMap.mapView(DialogueView,DialogueViewMediator);
-			mediatorMap.mapView(OptionView,DialogueViewMediator);
+			mediatorMap.mapView(OptionView,OptionViewMediator);
 
 			mediatorMap.mapView(LoginView,LoginViewMediator);
 			mediatorMap.mapView(ConfigView,ConfigMediator);
@@ -83,6 +85,7 @@ public class GameContext extends StarlingContext
             commandMap.mapEvent(GameEvent.APP_INPUT_RIGHT,RightClickCommand);
 
 			commandMap.mapEvent(DialogueEvent.DIALOGUE_END,DialogueCommand);
+			commandMap.mapEvent(DialogueEvent.SELECT_OPTION,SelectOptionCommand);
 			commandMap.mapEvent(LoginEvent.LOGIN,LoginCommand);
 		}
 		

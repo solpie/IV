@@ -8,6 +8,8 @@
 package mainGame.modules.scenes.dialogue.view {
 import ex.SpriteSTL;
 
+import feathers.controls.Button;
+
 import feathers.controls.Label;
 
 
@@ -17,6 +19,7 @@ import mainGame.Constants;
 
 import mainGame.Game;
 import mainGame.modules.scenes.dialogue.model.OptionVO;
+import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
 
 import starling.display.DisplayObjectContainer;
 import starling.display.Image;
@@ -27,9 +30,24 @@ public class OptionView extends SpriteSTL {
     private var _bg:Image;
     private var _title:Label;
     private var _textToFunc:Dictionary;
+
+    private const contentX:int;
     public function OptionView(parent:DisplayObjectContainer = null) {
         super(parent);
         init();
+        test();
+    }
+
+    private function test():void {
+        _title.y=50;
+        _title.x=20;
+        addChild(_title);
+        var option:Array=new Array();
+        option.push(new OptionVO("no chocolate",10001));
+        option.push(new OptionVO("no chocolate~",10002));
+        option.push(new OptionVO("no chocolate~yooo",10002));
+        option.push(new OptionVO("no chocolate~yooooooo",10002));
+        updateOption("valentine's event",option);
     }
 
     private function init():void {
@@ -43,24 +61,30 @@ public class OptionView extends SpriteSTL {
     }
 
     public function updateOption(title:String,optionList:Array):void {
-        _title.text=title;
+        _title.text="<font color='#FFeecc'><b>%s</b></font>".replace('%s',title);
+        _title.width=this.width;
         var preX:int=20;
-        var preY:int=40;
-        var option:Label;
+        var preY:int=100;
+        var option:Button;
         for each (var optionVO:OptionVO in optionList) {
             _textToFunc[optionVO.text]=optionVO.plotId;
-            option=new Label();
+            option=new Button();
             option.x = preX;
-            option.y = preY+30;
-            option.text=optionVO.text;
-            option.addEventListener(Event.TRIGGERED,onSlectOption);
+            option.y = preY;
+            option.label=optionVO.text;
+//            option.text=optionVO.text;
+            option.width=this.width;
+            option.addEventListener(Event.TRIGGERED,onSelectOption);
             addChild(option);
+            trace(this,"new option",optionVO.text);
+            preY+=30;
         }
     }
 
-    private function onSlectOption(e:Event):void {
-        var plotId:int = _textToFunc[(e.target as Label).text];
-        dispatchEvent(new Event(Event.COMPLETE,false,plotId));
+    private function onSelectOption(e:Event):void {
+//        var plotId:int = _textToFunc[(e.target as Label).text];
+        var plotId:int = _textToFunc[(e.target as Button).label];
+        dispatchEvent(new Event(DialogueEvent.SELECT_OPTION,false,plotId));
     }
 }
 }

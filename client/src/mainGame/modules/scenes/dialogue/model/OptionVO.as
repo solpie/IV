@@ -11,7 +11,9 @@ public class OptionVO {
     public var text:String;
     //选项对应的id
     public var plotId:int;
-    public function OptionVO() {
+    public function OptionVO(text:String, pId:int) {
+        this.text=text;
+        this.plotId=pId;
     }
 }
 }

@@ -8,6 +8,7 @@ public class DialogueEvent extends EventFLA
 		public static const DIALOGUE_END:String="对话完成";
 		public static const RIGHT_CLICK_ON_BG:String="右键对话框";
 		public static const CLICK_ON_BG:String="左键键对话框";
+		public static const SELECT_OPTION:String="选择选项";
 
 		public function DialogueEvent(type:String,data:Object=null)
 		{

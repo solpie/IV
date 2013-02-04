@@ -16,8 +16,6 @@ public class DialogueViewMediator extends StarlingMediator
     public var view:DialogueView;
     [Inject]
     public var model:GameModel;
-    [Inject]
-    public var viewOption:OptionView;
 
     public function DialogueViewMediator(){super();}
 
@@ -27,15 +25,11 @@ public class DialogueViewMediator extends StarlingMediator
         eventMap.mapListener(eventDispatcher,DialogueEvent.E_DIALOGUE,onUpdateDialogue);
         //view to event
         view.addEventListener(Event.COMPLETE,onDialogueClick);
-        viewOption.addEventListener(Event.COMPLETE,onSelectOption)
-//        view.addEventListener(DialogueEvent.CLICK_ON_BG,onTouchBg);
         //right click
         model.addRightClickHandle(view.dialogueMask,onRightClickBg);
     }
 
-    private function onSelectOption(e:Event):void {
 
-    }
 
     private function onRightClickBg():void {
         //todo 弹出右键菜单
