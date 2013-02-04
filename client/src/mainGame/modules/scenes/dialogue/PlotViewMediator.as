@@ -32,7 +32,7 @@ public class PlotViewMediator extends StarlingMediator
 
 
     private function onRightClickBg():void {
-        //todo 弹出右键菜单
+        //todo       弹出右键菜单
         trace(this, " 弹出右键菜单");
         Game.showConfig();
     }

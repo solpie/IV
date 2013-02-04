@@ -13,6 +13,8 @@ public class PlayerModel extends Actor {
     public var id:int;
     public var currentPlotId:int;
     public var endPlotList:Array;
+    //n 周目 todo 根据 n周目和选项的id判断要不要显示选项
+    public var round:int = 1;
     public function PlayerModel() {
         super();
         init();
@@ -21,7 +23,7 @@ public class PlayerModel extends Actor {
     private function init():void {
         endPlotList=new Array();
     }
-    //完成当前剧情，选择下一个剧情
+    //完成当前剧情，选择播放下一个剧情
     public function selectPlot(pId:int):void {
         endPlotList.push(currentPlotId);
         currentPlotId=pId;
