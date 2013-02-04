@@ -10,6 +10,7 @@ import ex.SpriteSTL;
 
 import feathers.controls.Label;
 
+
 import flash.utils.Dictionary;
 
 import mainGame.Constants;
@@ -19,6 +20,7 @@ import mainGame.modules.scenes.dialogue.model.OptionVO;
 
 import starling.display.DisplayObjectContainer;
 import starling.display.Image;
+import starling.events.Event;
 
 public class OptionView extends SpriteSTL {
     private var _optionList:Array;
@@ -46,13 +48,19 @@ public class OptionView extends SpriteSTL {
         var preY:int=40;
         var option:Label;
         for each (var optionVO:OptionVO in optionList) {
-            _textToFunc[option.text]=optionVO.plotId;
+            _textToFunc[optionVO.text]=optionVO.plotId;
             option=new Label();
             option.x = preX;
             option.y = preY+30;
             option.text=optionVO.text;
+            option.addEventListener(Event.TRIGGERED,onSlectOption);
             addChild(option);
         }
+    }
+
+    private function onSlectOption(e:Event):void {
+        var plotId:int = _textToFunc[(e.target as Label).text];
+        dispatchEvent(new Event(Event.COMPLETE,false,plotId));
     }
 }
 }

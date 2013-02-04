@@ -16,6 +16,7 @@ import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
 import mainGame.modules.scenes.dialogue.model.DialogueModel;
 import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
 import mainGame.modules.scenes.dialogue.view.DialogueView;
+import mainGame.modules.scenes.dialogue.view.OptionView;
 import mainGame.modules.scenes.login.LoginViewMediator;
 import mainGame.modules.scenes.login.controller.LoginCommand;
 import mainGame.modules.scenes.login.model.events.LoginEvent;
@@ -70,6 +71,8 @@ public class GameContext extends StarlingContext
 		private function mapView():void
 		{
 			mediatorMap.mapView(DialogueView,DialogueViewMediator);
+			mediatorMap.mapView(OptionView,DialogueViewMediator);
+
 			mediatorMap.mapView(LoginView,LoginViewMediator);
 			mediatorMap.mapView(ConfigView,ConfigMediator);
 		}
