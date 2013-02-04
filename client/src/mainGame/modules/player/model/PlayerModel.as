@@ -11,9 +11,15 @@ import org.robotlegs.mvcs.Actor;
 public class PlayerModel extends Actor {
     public var name:String = "iv";
     public var id:int;
-
+    public var currentPlotId:int;
+    public var endPlotList:Array;
     public function PlayerModel() {
         super();
+        init();
+    }
+
+    private function init():void {
+        endPlotList=new Array();
     }
 }
 }
