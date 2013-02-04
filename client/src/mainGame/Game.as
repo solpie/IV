@@ -8,7 +8,7 @@ import flash.ui.Keyboard;
 import flash.utils.getDefinitionByName;
 
 import mainGame.modules.config.view.ConfigView;
-import mainGame.modules.scenes.dialogue.view.DialogueView;
+import mainGame.modules.scenes.dialogue.view.PlotView;
 import mainGame.modules.scenes.login.view.LoginView;
 
 import org.robotlegs.mvcs.StarlingContext;
@@ -26,7 +26,7 @@ public class Game extends SpriteSTL
 //		private static const UbuntuRegular:Class;
 
     private var mMainMenu:MainMenu;
-    private var mCurrentScene:DialogueView;
+    private var mCurrentScene:PlotView;
 
     private static var sAssets:AssetManager;
 
@@ -38,7 +38,7 @@ public class Game extends SpriteSTL
 
     //scene
     private static var scnLogin:LoginView;
-    private static var scnDialogue:DialogueView;
+    private static var scnDialogue:PlotView;
     private static var scnConfig:ConfigView;
     public function Game()
     {
@@ -133,7 +133,7 @@ public class Game extends SpriteSTL
     {
         if (mCurrentScene) return;
         var sceneClass:Class = getDefinitionByName(name) as Class;
-        mCurrentScene = new sceneClass() as DialogueView;
+        mCurrentScene = new sceneClass() as PlotView;
         mMainMenu.removeFromParent();
         addChild(mCurrentScene);
     }
@@ -142,7 +142,7 @@ public class Game extends SpriteSTL
     public static function login():void
     {
         if(scnLogin)_this.removeChild(scnLogin);
-        scnDialogue=new DialogueView(_this);
+        scnDialogue=new PlotView(_this);
     }
     public static function showConfig():void
     {

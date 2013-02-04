@@ -15,7 +15,7 @@ import starling.display.Quad;
 import starling.events.Event;
 import starling.events.TouchEvent;
 
-public class DialogueView extends SpriteSTL
+public class PlotView extends SpriteSTL
 {
     //      	private var _dialogueArea:DialogueArea;
     private var _avatar:Avatar;
@@ -29,7 +29,7 @@ public class DialogueView extends SpriteSTL
     public var viewOption:OptionView;
 //        public var menu:
     //		private var _dialogue:
-    public function DialogueView(parent:DisplayObjectContainer=null)
+    public function PlotView(parent:DisplayObjectContainer=null)
     {
         super(parent);
         init();

@@ -3,21 +3,21 @@ package mainGame.modules.scenes.dialogue
 import mainGame.Game;
 import mainGame.model.GameModel;
 import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
-import mainGame.modules.scenes.dialogue.view.DialogueView;
+import mainGame.modules.scenes.dialogue.view.PlotView;
 import mainGame.modules.scenes.dialogue.view.OptionView;
 
 import org.robotlegs.mvcs.StarlingMediator;
 
 import starling.events.Event;
 
-public class DialogueViewMediator extends StarlingMediator
+public class PlotViewMediator extends StarlingMediator
 {
     [Inject]
-    public var view:DialogueView;
+    public var view:PlotView;
     [Inject]
     public var model:GameModel;
 
-    public function DialogueViewMediator(){super();}
+    public function PlotViewMediator(){super();}
 
     override public function onRegister():void
     {

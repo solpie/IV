@@ -21,5 +21,10 @@ public class PlayerModel extends Actor {
     private function init():void {
         endPlotList=new Array();
     }
+    //完成当前剧情，选择下一个剧情
+    public function selectPlot(pId:int):void {
+        endPlotList.push(currentPlotId);
+        currentPlotId=pId;
+    }
 }
 }

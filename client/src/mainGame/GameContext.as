@@ -11,13 +11,13 @@ import mainGame.model.events.GameEvent;
 import mainGame.modules.config.ConfigMediator;
 import mainGame.modules.config.view.ConfigView;
 import mainGame.modules.player.model.PlayerModel;
-import mainGame.modules.scenes.dialogue.DialogueViewMediator;
+import mainGame.modules.scenes.dialogue.PlotViewMediator;
 import mainGame.modules.scenes.dialogue.OptionViewMediator;
 import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
 import mainGame.modules.scenes.dialogue.controller.SelectOptionCommand;
 import mainGame.modules.scenes.dialogue.model.DialogueModel;
 import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
-import mainGame.modules.scenes.dialogue.view.DialogueView;
+import mainGame.modules.scenes.dialogue.view.PlotView;
 import mainGame.modules.scenes.dialogue.view.OptionView;
 import mainGame.modules.scenes.login.LoginViewMediator;
 import mainGame.modules.scenes.login.controller.LoginCommand;
@@ -72,7 +72,7 @@ public class GameContext extends StarlingContext
 		
 		private function mapView():void
 		{
-			mediatorMap.mapView(DialogueView,DialogueViewMediator);
+			mediatorMap.mapView(PlotView,PlotViewMediator);
 			mediatorMap.mapView(OptionView,OptionViewMediator);
 
 			mediatorMap.mapView(LoginView,LoginViewMediator);

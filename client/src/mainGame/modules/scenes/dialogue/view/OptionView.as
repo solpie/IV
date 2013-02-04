@@ -18,7 +18,7 @@ import flash.utils.Dictionary;
 import mainGame.Constants;
 
 import mainGame.Game;
-import mainGame.modules.scenes.dialogue.model.OptionVO;
+import mainGame.modules.scenes.dialogue.model.vo.OptionVO;
 import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
 
 import starling.display.DisplayObjectContainer;
@@ -30,6 +30,7 @@ public class OptionView extends SpriteSTL {
     private var _bg:Image;
     private var _title:Label;
     private var _textToFunc:Dictionary;
+    private var this_:OptionView;
 
     private const contentX:int;
     public function OptionView(parent:DisplayObjectContainer = null) {
@@ -39,6 +40,7 @@ public class OptionView extends SpriteSTL {
     }
 
     private function test():void {
+        this_=this;
         _title.y=50;
         _title.x=20;
         addChild(_title);
@@ -85,6 +87,14 @@ public class OptionView extends SpriteSTL {
 //        var plotId:int = _textToFunc[(e.target as Label).text];
         var plotId:int = _textToFunc[(e.target as Button).label];
         dispatchEvent(new Event(DialogueEvent.SELECT_OPTION,false,plotId));
+        clear();
+    }
+
+    private function clear():void {
+        _textToFunc=null;
+        this.removeChildren(0,-1,true);
+        this.parent.removeChild(this_);
+        this.dispose();
     }
 }
 }
