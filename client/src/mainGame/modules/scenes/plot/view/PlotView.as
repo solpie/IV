@@ -6,7 +6,10 @@ import ex.SpriteSTL;
 import feathers.controls.Button;
 import feathers.controls.Label;
 
+import mainGame.Constants;
+
 import mainGame.Game;
+import mainGame.modules.scenes.plot.model.PlotModel;
 
 import starling.animation.DelayedCall;
 import starling.display.DisplayObjectContainer;
@@ -34,12 +37,11 @@ public class PlotView extends SpriteSTL
         super(parent);
         init();
         addListener();
-        test();
+//        test();
     }
 
     private function test():void {
         viewOption=new OptionView(this);
-
     }
 
 
@@ -54,9 +56,9 @@ public class PlotView extends SpriteSTL
         _avatar=new Avatar();
         _avatar.y=-200;
         _avatar.x=300;
-        addChild(_avatar);
+//        addChild(_avatar);
 
-        dialogueUI=new Image(Game.assets.getTexture("plot"));
+        dialogueUI=new Image(Game.assets.getTexture(Constants.UI_DIALOGUE));
         dialogueUI.y = 400;
         addChild(dialogueUI);
 

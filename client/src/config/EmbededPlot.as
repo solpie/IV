@@ -21,14 +21,15 @@ public class EmbededPlot extends Actor {
     public function EmbededPlot() {
         p = new plot_xml();
         e = new event_xml();
+        trace(this, "new EmbededPlot");
     }
 
-    public function get plotXML():XML {
-        return p as XML;
+    public function get plotXML():Object {
+        return p;
     }
 
-    public function get eventXML():XML {
-        return e as XML;
+    public function get eventXML():Object {
+        return e;
     }
 }
 }

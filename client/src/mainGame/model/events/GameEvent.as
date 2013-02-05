@@ -14,6 +14,7 @@ public class GameEvent extends EventFLA
 		public static const APP_INPUT_KEY:String="App key";
 		public static const APP_INPUT_RIGHT:String="App right click";
 		public static const APP_INPUT_OVER_BUTTON:String="mouse over bottun";
+		public static const LOAD_PLOT:String="加载剧情配置文件";
 		public function GameEvent(type:String,payload:Object=null)
 		{
 			super(type, payload);

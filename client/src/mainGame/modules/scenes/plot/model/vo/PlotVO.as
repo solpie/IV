@@ -10,6 +10,7 @@ public class PlotVO {
     public var id:int;
     public var name:String;
     public var title:String;
+    public var skip:Boolean;
     public var eventList:Array=new Array();
     public function PlotVO() {
     }

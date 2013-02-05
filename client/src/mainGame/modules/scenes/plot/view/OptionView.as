@@ -44,12 +44,6 @@ public class OptionView extends SpriteSTL {
         _title.y=50;
         _title.x=20;
         addChild(_title);
-        var option:Array=new Array();
-        option.push(new OptionVO("no chocolate",10001));
-        option.push(new OptionVO("no chocolate~",10002));
-        option.push(new OptionVO("no chocolate~yooo",10002));
-        option.push(new OptionVO("no chocolate~yooooooo",10002));
-        updateOption("valentine's event",option);
     }
 
     private function init():void {

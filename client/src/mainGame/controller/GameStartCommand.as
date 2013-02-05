@@ -8,6 +8,10 @@
 package mainGame.controller {
 import flash.net.SharedObject;
 
+import mainGame.model.events.GameEvent;
+
+import mainGame.modules.scenes.plot.model.PlotModel;
+
 import mainGame.service.ShareDataService;
 
 import org.robotlegs.mvcs.StarlingCommand;
@@ -15,14 +19,17 @@ import org.robotlegs.mvcs.StarlingCommand;
 public class GameStartCommand extends StarlingCommand {
     [Inject]
     public var service:ShareDataService;
+
     public function GameStartCommand() {
         super();
     }
 
     override public function execute():void {
         super.execute();
-        var s:SharedObject=SharedObject.getLocal("PlayerInfo");
-        trace(this,"player name:", s.data.name);
+        //加载剧情文件
+        dispatch(new GameEvent(GameEvent.LOAD_PLOT));
+        var s:SharedObject = SharedObject.getLocal("PlayerInfo");
+        trace(this, "player name:", s.data.name);
     }
 }
 }

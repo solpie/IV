@@ -11,10 +11,24 @@ public class EventVO {
     public static const TYPE_DIALOGUE:int = 1;
     public static const TYPE_OPTION:int = 2;
 
-    public var id:int;
+    private var _id:int;
+    public function set id(value:int):void
+    {
+        _id = value;
+        _pId=_id/100;
+    }
+    public function get id():int
+    {
+        return _id;
+    }
     public var type:int;
     public var params:Array = new Array();
 
+    private var _pId:int;
+    public function get plotId():int
+    {
+        return _pId;
+    }
     public function EventVO() {
     }
 }

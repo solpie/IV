@@ -1,6 +1,8 @@
 package mainGame.modules.scenes.plot.model {
 import flash.utils.Dictionary;
 
+import mainGame.modules.scenes.plot.model.vo.EventVO;
+
 import mainGame.modules.scenes.plot.model.vo.PlotVO;
 
 import org.robotlegs.mvcs.Actor;
@@ -26,6 +28,7 @@ public class PlotModel extends Actor {
     private var _pagesToReview:Array;
 
     public var currentPlotVO:PlotVO;
+
     public function PlotModel() {
         super();
         __plotDic = new Dictionary();
@@ -80,12 +83,22 @@ public class PlotModel extends Actor {
             return null;
     }
 
-    public function getPlotInfo(pId:int):PlotVO {
+    public function getPlotVO(pId:int):PlotVO {
         return __plotDic[pId];
     }
 
+    public function setEvent(eId:int, eVO:EventVO):void {
+        __eventDic[eId] = eVO;
+        var pVO:PlotVO=getPlotVO(eVO.plotId);
+        pVO.eventList.push(eVO);
+    }
+
+    public function setPlot(pId:int, pVO:PlotVO):void {
+        __plotDic[pId] = pVO;
+    }
+
     public function clearCurrentPlot():void {
-        currentPlotVO=null;
+        currentPlotVO = null;
     }
 }
 }

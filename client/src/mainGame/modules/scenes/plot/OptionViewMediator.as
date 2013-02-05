@@ -16,15 +16,22 @@ import starling.events.Event;
 public class OptionViewMediator extends StarlingMediator {
     [Inject]
     public var view:OptionView;
+
     public function OptionViewMediator() {
         super();
     }
 
-
     override public function onRegister():void {
         super.onRegister();
-        view.addEventListener(PlotEvent.SELECT_OPTION,onSelectOption);
+//        eventMap.mapStarlingListener()
+        eventMap.mapListener(eventDispatcher, PlotEvent.UPDATE_OPTION, onUpdateOption);
+        view.addEventListener(PlotEvent.SELECT_OPTION, onSelectOption);
     }
+
+    private function onUpdateOption(e:PlotEvent):void {
+        view.updateOption(e.payload.getTitle, e.payload.getOptionList);
+    }
+
     private function onSelectOption(e:Event):void {
         dispatch(new PlotEvent(e.type, e.data));
         trace(this, "on select option");

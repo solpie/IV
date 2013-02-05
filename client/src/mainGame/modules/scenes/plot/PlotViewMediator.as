@@ -4,10 +4,13 @@ import flash.utils.Dictionary;
 import mainGame.Game;
 import mainGame.model.GameModel;
 import mainGame.modules.player.model.PlayerModel;
+import mainGame.modules.scenes.plot.model.PlotModel;
 import mainGame.modules.scenes.plot.model.events.PlotEvent;
 import mainGame.modules.scenes.plot.model.vo.EventVO;
-import mainGame.modules.scenes.plot.view.PlotView;
+import mainGame.modules.scenes.plot.model.vo.OptionVO;
+import mainGame.modules.scenes.plot.model.vo.PlotVO;
 import mainGame.modules.scenes.plot.view.OptionView;
+import mainGame.modules.scenes.plot.view.PlotView;
 
 import org.robotlegs.mvcs.StarlingMediator;
 
@@ -20,6 +23,8 @@ public class PlotViewMediator extends StarlingMediator {
     public var model:GameModel;
     [Inject]
     public var modelPlayer:PlayerModel;
+    [Inject]
+    public var plotModel:PlotModel;
 
     private var eventToFunc:Dictionary;
 
@@ -30,35 +35,21 @@ public class PlotViewMediator extends StarlingMediator {
     override public function onRegister():void {
         //event to view
         eventMap.mapListener(eventDispatcher, PlotEvent.E_DIALOGUE, onUpdateDialogue);
+        eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_START, onEventStart);
         //view to event
         view.addEventListener(Event.COMPLETE, onDialogueClick);
         //right click
         model.addRightClickHandle(view.dialogueMask, onRightClickBg);
-
+        //初始化事件处理
+        initEventDic();
         //开始最初剧情
-        dispatch(new PlotEvent(PlotEvent.SELECT_OPTION, modelPlayer.currentPlot));
+        dispatch(new PlotEvent(PlotEvent.PLOT_START, modelPlayer.currentPlot));
     }
 
-    private function initEventDic():void {
-        eventToFunc = new Dictionary();
-        eventToFunc[EventVO.TYPE_DELAY] = e_Delay;
-        eventToFunc[EventVO.TYPE_DIALOGUE] = e_Dialogue;
-        eventToFunc[EventVO.TYPE_OPTION] = e_Option;
+    private function onEventStart(e:PlotEvent):void {
+        var eVO:EventVO = e.payload as EventVO;
+        eventToFunc[eVO.type](eVO);
     }
-
-
-    private function e_Delay(eVO:EventVO):void {
-
-    }
-
-    private function e_Dialogue(eVO:EventVO):void {
-
-    }
-
-    private function e_Option(eVO:EventVO):void {
-
-    }
-
 
     private function onRightClickBg():void {
         //todo       弹出右键菜单
@@ -82,5 +73,38 @@ public class PlotViewMediator extends StarlingMediator {
     }
 
     //执行事件
+    private function initEventDic():void {
+        eventToFunc = new Dictionary();
+        eventToFunc[EventVO.TYPE_DELAY] = e_Delay;
+        eventToFunc[EventVO.TYPE_DIALOGUE] = e_Dialogue;
+        eventToFunc[EventVO.TYPE_OPTION] = e_Option;
+    }
+
+    private function e_Delay(eVO:EventVO):void {
+        trace(this, "e_Delay");
+    }
+
+    private function e_Dialogue(eVO:EventVO):void {
+        trace(this, "e_Dialogue");
+    }
+
+    private function e_Option(eVO:EventVO):void {
+        new OptionView(view);
+        var title:String;
+        var hasTitle:Boolean = !Boolean(int(eVO.params[eVO.params.length - 1]));
+        if (hasTitle)
+            title = eVO.params.pop();
+
+        var optionList:Array = new Array();
+        var pVO:PlotVO;
+        for each(var pId:int in eVO.params) {
+            pVO = plotModel.getPlotVO(pId);
+            optionList.push(new OptionVO(pVO.title, pVO.id));
+        }
+
+        dispatch(new PlotEvent(PlotEvent.UPDATE_OPTION, {getTitle: title, getOptionList: optionList}))
+        trace(this, "e_Option");
+    }
+
 }
 }

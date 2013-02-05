@@ -7,9 +7,11 @@
  */
 package mainGame.modules.scenes.plot.controller {
 import mainGame.modules.player.model.PlayerModel;
-import mainGame.modules.scenes.plot.model.vo.PlotVO;
 import mainGame.modules.scenes.plot.model.PlotModel;
 import mainGame.modules.scenes.plot.model.events.PlotEvent;
+import mainGame.modules.scenes.plot.model.vo.PlotVO;
+
+import org.osmf.events.PlayEvent;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
@@ -28,9 +30,9 @@ public class PlotStartCommand extends StarlingCommand {
 
     override public function execute():void {
         if (event.hasPayload)
-            model.currentPlotVO = model.getPlotInfo(int(event.payload));
+            model.currentPlotVO = model.getPlotVO(int(event.payload));
         //开始剧情事件
-
+        dispatch(new PlotEvent(PlotEvent.EVENT_START,model.currentPlotVO.eventList.shift()))
     }
 
     private function eventStart(pVO:PlotVO):void {

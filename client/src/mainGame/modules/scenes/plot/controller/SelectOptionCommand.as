@@ -7,11 +7,8 @@
  */
 package mainGame.modules.scenes.plot.controller {
 import mainGame.modules.player.model.PlayerModel;
-import mainGame.modules.scenes.plot.model.vo.PlotVO;
 import mainGame.modules.scenes.plot.model.PlotModel;
 import mainGame.modules.scenes.plot.model.events.PlotEvent;
-
-import org.osmf.events.PlayEvent;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
@@ -33,7 +30,7 @@ public class SelectOptionCommand extends StarlingCommand {
         model.selectPlot(plotId);
         //清除当前剧情数据
         modelPlot.clearCurrentPlot();
-        trace(this, "select option command");
+        trace(this, "select option command plot id:", plotId);
         //todo 播放下一个剧情
         dispatch(new PlotEvent(PlotEvent.PLOT_START));
     }

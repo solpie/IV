@@ -7,6 +7,6 @@ package mainGame
         public static const CenterX:int = GameWidth / 2;
         public static const CenterY:int = GameHeight / 2;
 
-        public static const UI_DIALOGUE:String = "plot";
+        public static const UI_DIALOGUE:String = "dialogue";
     }
 }

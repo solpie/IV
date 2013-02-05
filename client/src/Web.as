@@ -60,8 +60,6 @@ import starling.utils.AssetManager;
 			// background texture is embedded, because we need it right away!
 			trace(this,"onRootCreated");
 			// game will first load resources, then start menu
-            var xml:EmbededPlot=new EmbededPlot();
-            xml["plot_xml"];
 			game.start(asset);
 		}
 	}
