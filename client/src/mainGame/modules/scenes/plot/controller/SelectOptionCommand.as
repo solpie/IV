@@ -31,7 +31,6 @@ public class SelectOptionCommand extends StarlingCommand {
         //清除当前剧情数据
         modelPlot.clearCurrentPlot();
         trace(this, "select option command plot id:", plotId);
-        //todo 播放下一个剧情
         dispatch(new PlotEvent(PlotEvent.PLOT_START,plotId));
     }
 }

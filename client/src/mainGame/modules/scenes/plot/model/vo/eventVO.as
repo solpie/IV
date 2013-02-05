@@ -10,6 +10,8 @@ public class EventVO {
     public static const TYPE_DELAY:int = 0;
     public static const TYPE_DIALOGUE:int = 1;
     public static const TYPE_OPTION:int = 2;
+    public static const TYPE_MOTION:int = 3;
+    public static const TYPE_CG:int = 4;
 
     private var _id:int;
     public function set id(value:int):void
