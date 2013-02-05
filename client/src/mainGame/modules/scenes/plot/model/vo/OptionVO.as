@@ -5,7 +5,7 @@
  * Time: 上午10:36
  * To change this template use File | Settings | File Templates.
  */
-package mainGame.modules.scenes.dialogue.model.vo {
+package mainGame.modules.scenes.plot.model.vo {
 public class OptionVO {
     //选项内容
     public var text:String;

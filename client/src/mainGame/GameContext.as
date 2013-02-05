@@ -1,6 +1,8 @@
 package mainGame
 {
 
+import config.EmbededPlot;
+
 import flash.events.MouseEvent;
 import flash.geom.Point;
 
@@ -11,14 +13,15 @@ import mainGame.model.events.GameEvent;
 import mainGame.modules.config.ConfigMediator;
 import mainGame.modules.config.view.ConfigView;
 import mainGame.modules.player.model.PlayerModel;
-import mainGame.modules.scenes.dialogue.PlotViewMediator;
-import mainGame.modules.scenes.dialogue.OptionViewMediator;
-import mainGame.modules.scenes.dialogue.controller.DialogueCommand;
-import mainGame.modules.scenes.dialogue.controller.SelectOptionCommand;
-import mainGame.modules.scenes.dialogue.model.DialogueModel;
-import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
-import mainGame.modules.scenes.dialogue.view.PlotView;
-import mainGame.modules.scenes.dialogue.view.OptionView;
+import mainGame.modules.scenes.plot.PlotViewMediator;
+import mainGame.modules.scenes.plot.OptionViewMediator;
+import mainGame.modules.scenes.plot.controller.DialogueCommand;
+import mainGame.modules.scenes.plot.controller.PlotStartCommand;
+import mainGame.modules.scenes.plot.controller.SelectOptionCommand;
+import mainGame.modules.scenes.plot.model.PlotModel;
+import mainGame.modules.scenes.plot.model.events.PlotEvent;
+import mainGame.modules.scenes.plot.view.PlotView;
+import mainGame.modules.scenes.plot.view.OptionView;
 import mainGame.modules.scenes.login.LoginViewMediator;
 import mainGame.modules.scenes.login.controller.LoginCommand;
 import mainGame.modules.scenes.login.model.events.LoginEvent;
@@ -64,10 +67,12 @@ public class GameContext extends StarlingContext
 		{
 			injector.mapSingleton(GameModel);
 			injector.mapSingleton(PlayerModel);
-			injector.mapSingleton(DialogueModel);
+			injector.mapSingleton(PlotModel);
 			//service
 			injector.mapSingleton(ByteArrayService);
 			injector.mapSingleton(ShareDataService);
+            //embed
+            injector.mapSingleton(EmbededPlot);
 		}
 		
 		private function mapView():void
@@ -84,8 +89,9 @@ public class GameContext extends StarlingContext
             commandMap.mapEvent(GameEvent.APP_STARTUP,GameStartCommand);
             commandMap.mapEvent(GameEvent.APP_INPUT_RIGHT,RightClickCommand);
 
-			commandMap.mapEvent(DialogueEvent.DIALOGUE_END,DialogueCommand);
-			commandMap.mapEvent(DialogueEvent.SELECT_OPTION,SelectOptionCommand);
+			commandMap.mapEvent(PlotEvent.DIALOGUE_END,DialogueCommand);
+			commandMap.mapEvent(PlotEvent.SELECT_OPTION,SelectOptionCommand);
+			commandMap.mapEvent(PlotEvent.PLOT_START,PlotStartCommand);
 			commandMap.mapEvent(LoginEvent.LOGIN,LoginCommand);
 		}
 		

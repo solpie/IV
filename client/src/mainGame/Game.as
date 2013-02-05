@@ -8,7 +8,7 @@ import flash.ui.Keyboard;
 import flash.utils.getDefinitionByName;
 
 import mainGame.modules.config.view.ConfigView;
-import mainGame.modules.scenes.dialogue.view.PlotView;
+import mainGame.modules.scenes.plot.view.PlotView;
 import mainGame.modules.scenes.login.view.LoginView;
 
 import org.robotlegs.mvcs.StarlingContext;
@@ -74,7 +74,6 @@ public class Game extends SpriteSTL
         asset.loadQueue(function(ratio:Number):void
         {
 //				mLoadingProgress.ratio = ratio;
-
             // a progress bar should always show the 100% for a while,
             // so we show the main menu only after a short delay.
             if (ratio == 1)

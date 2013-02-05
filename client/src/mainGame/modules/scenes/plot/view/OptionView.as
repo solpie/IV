@@ -5,7 +5,7 @@
  * Time: 上午10:25
  * To change this template use File | Settings | File Templates.
  */
-package mainGame.modules.scenes.dialogue.view {
+package mainGame.modules.scenes.plot.view {
 import ex.SpriteSTL;
 
 import feathers.controls.Button;
@@ -18,8 +18,8 @@ import flash.utils.Dictionary;
 import mainGame.Constants;
 
 import mainGame.Game;
-import mainGame.modules.scenes.dialogue.model.vo.OptionVO;
-import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
+import mainGame.modules.scenes.plot.model.vo.OptionVO;
+import mainGame.modules.scenes.plot.model.events.PlotEvent;
 
 import starling.display.DisplayObjectContainer;
 import starling.display.Image;
@@ -86,7 +86,7 @@ public class OptionView extends SpriteSTL {
     private function onSelectOption(e:Event):void {
 //        var plotId:int = _textToFunc[(e.target as Label).text];
         var plotId:int = _textToFunc[(e.target as Button).label];
-        dispatchEvent(new Event(DialogueEvent.SELECT_OPTION,false,plotId));
+        dispatchEvent(new Event(PlotEvent.SELECT_OPTION,false,plotId));
         clear();
     }
 

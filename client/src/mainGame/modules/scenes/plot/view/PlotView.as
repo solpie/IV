@@ -1,4 +1,4 @@
-package mainGame.modules.scenes.dialogue.view
+package mainGame.modules.scenes.plot.view
 {
 
 import ex.SpriteSTL;
@@ -56,7 +56,7 @@ public class PlotView extends SpriteSTL
         _avatar.x=300;
         addChild(_avatar);
 
-        dialogueUI=new Image(Game.assets.getTexture("dialogue"));
+        dialogueUI=new Image(Game.assets.getTexture("plot"));
         dialogueUI.y = 400;
         addChild(dialogueUI);
 

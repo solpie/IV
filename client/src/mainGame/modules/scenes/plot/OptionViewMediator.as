@@ -5,9 +5,9 @@
  * Time: 下午3:53
  * To change this template use File | Settings | File Templates.
  */
-package mainGame.modules.scenes.dialogue {
-import mainGame.modules.scenes.dialogue.model.events.DialogueEvent;
-import mainGame.modules.scenes.dialogue.view.OptionView;
+package mainGame.modules.scenes.plot {
+import mainGame.modules.scenes.plot.model.events.PlotEvent;
+import mainGame.modules.scenes.plot.view.OptionView;
 
 import org.robotlegs.mvcs.StarlingMediator;
 
@@ -23,10 +23,10 @@ public class OptionViewMediator extends StarlingMediator {
 
     override public function onRegister():void {
         super.onRegister();
-        view.addEventListener(DialogueEvent.SELECT_OPTION,onSelectOption);
+        view.addEventListener(PlotEvent.SELECT_OPTION,onSelectOption);
     }
     private function onSelectOption(e:Event):void {
-        dispatch(new DialogueEvent(e.type, e.data));
+        dispatch(new PlotEvent(e.type, e.data));
         trace(this, "on select option");
     }
 }
