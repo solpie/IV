@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+  <plot id="10001" name="" skip="1" title="大门" />
+  <plot id="10002" name="" skip="" title="需要酒" />
+  <plot id="10003" name="" skip="" title="不需要酒" />
+  <plot id="10004" name="" skip="" title="安静的地方" />
+  <plot id="10005" name="" skip="" title="热闹的地方" />
+  <plot id="11001" name="" skip="" title="有书的桌子" />
+  <plot id="12001" name="" skip="" title="空座" />
+  <plot id="13001" name="" skip="" title="卡座" />
+  <plot id="14001" name="" skip="" title="小哥" />
+  <plot id="25001" name="" skip="" title="吧台" />
+  <plot id="31006" name="情人节当天入场" skip="" title="" />
+</root>

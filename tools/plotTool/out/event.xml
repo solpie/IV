@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+  <event id="1000102" params="10002-10003-需要酒吗？" type="2" />
+  <event id="1000201" params="10004-10005-要去哪里？" type="2" />
+  <event id="1000301" params="1-0" type="6" />
+  <event id="1000401" params="室内图片id" type="4" />
+  <event id="1000402" params="11001-12001-25001-要去哪里？" type="2" />
+  <event id="1000501" params="室内图片id" type="4" />
+  <event id="1000502" params="13001-14001-选谁?" type="2" />
+  <event id="1100101" params="无血压图片id-对话内容" type="1" />
+  <event id="1200101" params="歩鸣枫图片id-对话内容" type="1" />
+  <event id="1300101" params="小乔图片id-对话内容" type="1" />
+  <event id="1400101" params="小空图片id-对话内容" type="1" />
+  <event id="2500101" params="店长图片id-对话内容" type="1" />
+  <event id="3100601" params="101-把巧克力递过去吧，我在心里嘀咕着" type="1" />
+  <event id="3100602" params="101JY" type="3" />
+  <event id="3100603" params="虽然不是亲手做的，但是我，我……-31007-只是义理巧克力而已哦，千万别误会-31008" type="2" />
+  <event id="3100701" params="101WX" type="3" />
+  <event id="3100702" params="0-谢谢你的义理巧克力呢，好精致 " type="1" />
+  <event id="3100703" params="0-不是的！声音大的吓了自己一跳，瞬间沐浴在奇怪的目光中，我有点不知所措。不是的，义理什么的……" type="1" />
+  <event id="3100801" params="101NS" type="3" />
+  <event id="3100802" params="0-害怕得不到期望的回答而刻意破坏好的可能性，从而让自己达成预期的失落感吗。谋杀可能性也是一种谋杀，却不触犯任何法律呢。不管怎样，谢谢你" type="1" />
+</root>
