@@ -14,7 +14,7 @@ public class DialogueCommand extends StarlingCommand {
 
     override public function execute():void {
         var strPage:String = model.getNextPage();
-        dispatch(new PlotEvent(PlotEvent.E_DIALOGUE, strPage));
+        dispatch(new PlotEvent(PlotEvent.DIALOGUE_NEXT_PAGE, strPage));
 //			model.getNext();
         trace(this, "DialogueCommand", strPage);
     }

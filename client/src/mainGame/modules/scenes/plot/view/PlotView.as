@@ -86,14 +86,9 @@ public class PlotView extends SpriteSTL
         _delayCall=new DelayedCall(onTick,0.4);
     }
 
-    public function showDialogue(text:String,avatarId:String):void
+    public function updateDialogue(text:String,avatarId:String):void
     {
         _dialogue.text=text;
-        //todo get avatar
-        if(_avatar.id!=avatarId)
-            _avatar.setLihui(avatarId);
-        else
-            _avatar.setLihui("logo");
     }
 
     private function onTick():void
@@ -114,6 +109,19 @@ public class PlotView extends SpriteSTL
     }
     private function onOut(e:TouchEvent):void
     {
+
+    }
+
+    public function updateAvatar(avatarId:String):void {
+        //todo get avatar
+        return;
+        if(_avatar.id!=avatarId)
+            _avatar.setLihui(avatarId);
+        else
+            _avatar.setLihui("logo");
+    }
+
+    public function clearOptionView():void {
 
     }
 }

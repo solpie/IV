@@ -85,7 +85,8 @@ public class OptionView extends SpriteSTL {
     }
 
     private function clear():void {
-        _textToFunc=null;
+        //FIXME
+//        _textToFunc=null;
         this.removeChildren(0,-1,true);
         this.parent.removeChild(this_);
         this.dispose();

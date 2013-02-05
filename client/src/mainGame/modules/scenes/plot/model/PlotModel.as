@@ -18,8 +18,8 @@ public class PlotModel extends Actor {
     private static const lineLimit:int = 10;
     private static const numLine:int = 3;
     private static const newLineChar:String = "|";
-    private var _dialogue:String = "1234567890The quic|k brown fox jumps over the lazy dog 中文中文是电风扇的发达的法师法上师大神鼎飞丹砂";
 
+//    private var _dialogue:String = "1234567890The quic|k brown fox jumps over the lazy dog 中文中文是电风扇的发达的法师法上师大神鼎飞丹砂";
     //剧情信息
     private var __plotDic:Dictionary;
     private var __eventDic:Dictionary;
@@ -34,17 +34,17 @@ public class PlotModel extends Actor {
         __plotDic = new Dictionary();
         __eventDic = new Dictionary();
         //test
-        layoutDialogue();
+//        layoutDialogue();
     }
-
-    public function layoutDialogue():void {
+    //对话内容分页
+    public function layoutDialogue(dialogue:String):void {
         var line:String = "";
         var lines:Array = new Array();
         var strIdx:String = "";
         _pagesToShow = new Array();
         _pagesToReview = new Array();
-        for (var i:int = 0; i < _dialogue.length; i++) {
-            strIdx = _dialogue.charAt(i)
+        for (var i:int = 0; i < dialogue.length; i++) {
+            strIdx = dialogue.charAt(i)
             if (strIdx != newLineChar)
                 line += strIdx;
             if (line.length == lineLimit || strIdx == newLineChar) {
@@ -60,7 +60,7 @@ public class PlotModel extends Actor {
         if (line != "") {
             lines.push(line);
             line = "";
-            _pagesToShow.push(lines);
+            _pagesToShow.push(lines.concat());
             lines.length = 0;
         }
     }

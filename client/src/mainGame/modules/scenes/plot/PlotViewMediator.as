@@ -34,8 +34,9 @@ public class PlotViewMediator extends StarlingMediator {
 
     override public function onRegister():void {
         //event to view
-        eventMap.mapListener(eventDispatcher, PlotEvent.E_DIALOGUE, onUpdateDialogue);
+        eventMap.mapListener(eventDispatcher, PlotEvent.DIALOGUE_NEXT_PAGE, onUpdateDialogue);
         eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_START, onEventStart);
+        eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_END, onEventEnd);
         //view to event
         view.addEventListener(Event.COMPLETE, onDialogueClick);
         //right click
@@ -46,10 +47,8 @@ public class PlotViewMediator extends StarlingMediator {
         dispatch(new PlotEvent(PlotEvent.PLOT_START, modelPlayer.currentPlot));
     }
 
-    private function onEventStart(e:PlotEvent):void {
-        var eVO:EventVO = e.payload as EventVO;
-        eventToFunc[eVO.type](eVO);
-    }
+
+
 
     private function onRightClickBg():void {
         //todo       弹出右键菜单
@@ -64,7 +63,7 @@ public class PlotViewMediator extends StarlingMediator {
     private function onUpdateDialogue(e:PlotEvent):void {
         if (e.payload)
             var str:String = e.payload as String;
-        view.showDialogue(str, "background");
+        view.updateDialogue(str, "background");
     }
 
     private function onDialogueClick(e:*):void {
@@ -78,6 +77,16 @@ public class PlotViewMediator extends StarlingMediator {
         eventToFunc[EventVO.TYPE_DELAY] = e_Delay;
         eventToFunc[EventVO.TYPE_DIALOGUE] = e_Dialogue;
         eventToFunc[EventVO.TYPE_OPTION] = e_Option;
+        eventToFunc[EventVO.TYPE_MOTION] = e_Motion;
+        eventToFunc[EventVO.TYPE_CG] = e_CG;
+    }
+    private function onEventStart(e:PlotEvent):void {
+        var eVO:EventVO = e.payload as EventVO;
+        eventToFunc[eVO.type](eVO);
+    }
+
+    private function onEventEnd():void {
+
     }
 
     private function e_Delay(eVO:EventVO):void {
@@ -85,10 +94,18 @@ public class PlotViewMediator extends StarlingMediator {
     }
 
     private function e_Dialogue(eVO:EventVO):void {
+        var avatarId:String=eVO.params[0];
+        var dialogue:String=eVO.params[1];
+        plotModel.layoutDialogue(dialogue);
+        view.updateAvatar(avatarId);
+        dispatch(new PlotEvent(PlotEvent.DIALOGUE_END));
         trace(this, "e_Dialogue");
     }
 
     private function e_Option(eVO:EventVO):void {
+        if(view.viewOption)
+            view.viewOption.dispose();
+
         new OptionView(view);
         var title:String;
         var hasTitle:Boolean = !Boolean(int(eVO.params[eVO.params.length - 1]));
@@ -105,6 +122,12 @@ public class PlotViewMediator extends StarlingMediator {
         dispatch(new PlotEvent(PlotEvent.UPDATE_OPTION, {getTitle: title, getOptionList: optionList}))
         trace(this, "e_Option");
     }
+    private function e_Motion(eVO:EventVO):void {
+        dispatch(new PlotEvent(PlotEvent.PLOT_START));
+    }
 
+    private function e_CG(eVO:EventVO):void {
+            dispatch(new PlotEvent(PlotEvent.PLOT_START));
+    }
 }
 }
