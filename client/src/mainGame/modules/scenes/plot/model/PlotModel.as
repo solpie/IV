@@ -15,7 +15,7 @@ public class PlotModel extends Actor {
     /**
      *每行最大字数
      */
-    private static const lineLimit:int = 50;
+    private static const lineLimit:int = 30;
     private static const numLine:int = 4;
     private static const newLineChar:String = "|";
 
@@ -25,7 +25,7 @@ public class PlotModel extends Actor {
     private var __eventDic:Dictionary;
 
     private var _pagesToShow:Array;
-    private var _pagesToReview:Array;
+    private var _currentPageIdx:int;
 
     public var currentPlotVO:PlotVO;
 
@@ -42,7 +42,6 @@ public class PlotModel extends Actor {
         var lines:Array = new Array();
         var strIdx:String = "";
         _pagesToShow = new Array();
-        _pagesToReview = new Array();
         for (var i:int = 0; i < dialogue.length; i++) {
             strIdx = dialogue.charAt(i)
             if (strIdx != newLineChar)
@@ -66,18 +65,16 @@ public class PlotModel extends Actor {
     }
 
     public function getNextPage():String {
-        if (_pagesToShow&&_pagesToShow.length) {
-            _pagesToReview.push(_pagesToShow.shift());
-            return _pagesToReview[_pagesToReview.length - 1];
+        if (_pagesToShow&&_currentPageIdx<_pagesToShow.length-1) {
+            return _pagesToShow[_currentPageIdx++];
         }
         else
             return null;
     }
 
     public function getPrePage():String {
-        if (_pagesToReview&&_pagesToReview.length) {
-            _pagesToShow.push(_pagesToReview.pop());
-            return _pagesToShow[_pagesToShow.length - 1];
+        if (_pagesToShow&&_currentPageIdx>0) {
+            return _pagesToShow[_currentPageIdx--];
         }
         else
             return null;

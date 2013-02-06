@@ -51,6 +51,7 @@ public class PlotView extends SpriteSTL {
 
         _dialogue = new Label();
         _dialogue.width = this.width;
+        _dialogue.touchable=false;
         _dialogue.y = dialogueUI.y + 80;
         _dialogue.x = dialogueUI.x + 22;
 //        _dialogue.text="<b><font color='#FFeecc'>1234567890\nThe quick brown fox jumps over the lazy dog</font></b>\n中文中文";

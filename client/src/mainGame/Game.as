@@ -81,18 +81,23 @@ public class Game extends SpriteSTL {
         });
         Starling.current.nativeStage.addEventListener(MouseEvent.RIGHT_CLICK, onRightClick);
         Starling.current.nativeStage.addEventListener(MouseEvent.CLICK, onClick);
+        Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_WHEEL, onWheel);
 
 //        addEventListener(Event.TRIGGERED, onButtonTriggered);
         stage.addEventListener(KeyboardEvent.KEY_DOWN, onKey);
     }
 
+    private function onWheel(e:MouseEvent):void {
+        _starlingContext.dispatchEvent(new GameEvent(GameEvent.INPUT_MOUSE_WHEEL,e.delta));
+    }
+
     private function onRightClick(e:MouseEvent):void {
-        _starlingContext.dispatchEvent(new GameEvent(GameEvent.APP_INPUT_RIGHT));
+        _starlingContext.dispatchEvent(new GameEvent(GameEvent.INPUT_MOUSE_RIGHT));
         trace(this, "Game onRightClick");
     }
 
     private function onClick(e:MouseEvent):void {
-        _starlingContext.dispatchEvent(new GameEvent(GameEvent.APP_INPUT_LEFT));
+        _starlingContext.dispatchEvent(new GameEvent(GameEvent.INPUT_MOUSE_LEFT));
         trace(this, "Game onClick");
     }
 

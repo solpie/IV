@@ -3,6 +3,7 @@ import flash.utils.Dictionary;
 
 import mainGame.Game;
 import mainGame.model.GameModel;
+import mainGame.model.events.GameEvent;
 import mainGame.modules.player.model.PlayerModel;
 import mainGame.modules.scenes.plot.model.PlotModel;
 import mainGame.modules.scenes.plot.model.events.PlotEvent;
@@ -14,12 +15,7 @@ import mainGame.modules.scenes.plot.view.PlotView;
 
 import org.robotlegs.mvcs.StarlingMediator;
 
-import starling.display.DisplayObject;
-
-import starling.display.Image;
-
 import starling.events.Event;
-import starling.events.TouchEvent;
 
 public class PlotViewMediator extends StarlingMediator {
     [Inject]
@@ -44,10 +40,11 @@ public class PlotViewMediator extends StarlingMediator {
         eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_END, onEventEnd);
         //view to event
 //        view.addEventListener(Event.COMPLETE, onDialogueClick);
-        eventMap.mapStarlingListener(view.dialogueUI,Event.TRIGGERED,onDialogueClick);
+        eventMap.mapStarlingListener(view.dialogueUI, Event.TRIGGERED, onDialogueClick);
         //right click
         model.addRightClickHandle(view.dialogueUI, onRightClickBg);
         model.addLeftClickHandle(view.dialogueUI, onDialogueClick);
+        model.addWheelHandle(view.dialogueUI, onDialogueWheel);
         //初始化事件处理
         initEventDic();
         //开始最初剧情
@@ -59,19 +56,24 @@ public class PlotViewMediator extends StarlingMediator {
         Game.showConfig();
     }
 
-    private function onTouchBg(e:Event):void {
-
-    }
-
-    private function onUpdateDialogue(e:PlotEvent):void {
-        if (e.payload)
-            var str:String = e.payload as String;
-        view.updateDialogue(str, "background");
-    }
-
     private function onDialogueClick():void {
         dispatch(new PlotEvent(PlotEvent.DIALOGUE_END));
         trace(this, "onDialogueClick end");
+    }
+
+    private function onDialogueWheel(e:GameEvent):void {
+        var delta:int = int(e.payload);
+        if (delta < 0)
+            dispatch(new PlotEvent(PlotEvent.DIALOGUE_PRE));
+        else
+            dispatch(new PlotEvent(PlotEvent.DIALOGUE_END));
+    }
+
+    //刷新view
+    private function onUpdateDialogue(e:PlotEvent):void {
+        if (!e.payload)return;
+        var str:String = e.payload as String;
+        view.updateDialogue(str, "background");
     }
 
     //执行事件
@@ -83,6 +85,7 @@ public class PlotViewMediator extends StarlingMediator {
         eventToFunc[IncidentVO.TYPE_MOTION] = e_Motion;
         eventToFunc[IncidentVO.TYPE_CG] = e_CG;
     }
+
     private function onEventStart(e:PlotEvent):void {
         var eVO:IncidentVO = e.payload as IncidentVO;
         eventToFunc[eVO.type](eVO);
@@ -97,8 +100,8 @@ public class PlotViewMediator extends StarlingMediator {
     }
 
     private function e_Dialogue(eVO:IncidentVO):void {
-        var avatarId:String=eVO.params[0];
-        var dialogue:String=eVO.params[1];
+        var avatarId:String = eVO.params[0];
+        var dialogue:String = eVO.params[1];
         plotModel.layoutDialogue(dialogue);
         view.updateAvatar(avatarId);
         dispatch(new PlotEvent(PlotEvent.DIALOGUE_END));
@@ -106,7 +109,7 @@ public class PlotViewMediator extends StarlingMediator {
     }
 
     private function e_Option(eVO:IncidentVO):void {
-        if(view.optionView)
+        if (view.optionView)
             view.optionView.clear();
 
         new OptionView(view);
@@ -125,12 +128,13 @@ public class PlotViewMediator extends StarlingMediator {
         dispatch(new PlotEvent(PlotEvent.UPDATE_OPTION, {getTitle: title, getOptionList: optionList}))
         trace(this, "e_Option");
     }
+
     private function e_Motion(eVO:IncidentVO):void {
         onEventEnd();
     }
 
     private function e_CG(eVO:IncidentVO):void {
-           onEventEnd();
+        onEventEnd();
     }
 }
 }

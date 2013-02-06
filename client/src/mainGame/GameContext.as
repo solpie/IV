@@ -4,6 +4,7 @@ import mainGame.controller.GameStartCmd;
 import mainGame.controller.LeftClickCmd;
 import mainGame.controller.LoadPlotCmd;
 import mainGame.controller.RightClickCmd;
+import mainGame.controller.WheelCmd;
 import mainGame.model.GameModel;
 import mainGame.model.events.GameEvent;
 import mainGame.modules.config.ConfigMediator;
@@ -70,8 +71,9 @@ public class GameContext extends StarlingContext {
 
     private function mapController():void {
         commandMap.mapEvent(GameEvent.APP_STARTUP, GameStartCmd);
-        commandMap.mapEvent(GameEvent.APP_INPUT_RIGHT, RightClickCmd);
-        commandMap.mapEvent(GameEvent.APP_INPUT_LEFT, LeftClickCmd);
+        commandMap.mapEvent(GameEvent.INPUT_MOUSE_RIGHT, RightClickCmd);
+        commandMap.mapEvent(GameEvent.INPUT_MOUSE_LEFT, LeftClickCmd);
+        commandMap.mapEvent(GameEvent.INPUT_MOUSE_WHEEL, WheelCmd);
 
         commandMap.mapEvent(GameEvent.LOAD_PLOT, LoadPlotCmd);
 
