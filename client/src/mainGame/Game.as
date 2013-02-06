@@ -1,26 +1,24 @@
-package mainGame
-{
+package mainGame {
 import assets.feathers.themes.MetalWorksMobileTheme;
 
 import ex.SpriteSTL;
 
+import flash.events.MouseEvent;
 import flash.ui.Keyboard;
 import flash.utils.getDefinitionByName;
 
+import mainGame.model.events.GameEvent;
 import mainGame.modules.config.view.ConfigView;
-import mainGame.modules.scenes.plot.view.PlotView;
 import mainGame.modules.scenes.login.view.LoginView;
+import mainGame.modules.scenes.plot.view.PlotView;
 
 import org.robotlegs.mvcs.StarlingContext;
 
 import starling.core.Starling;
-import starling.display.Button;
-import starling.events.Event;
 import starling.events.KeyboardEvent;
 import starling.utils.AssetManager;
 
-public class Game extends SpriteSTL
-{
+public class Game extends SpriteSTL {
     // Embed the Ubuntu Font. Beware: the 'embedAsCFF'-part IS REQUIRED!!!
 //		[Embed(source="../../demo/assets/fonts/Ubuntu-R.ttf", embedAsCFF="false", fontFamily="Ubuntu")]
 //		private static const UbuntuRegular:Class;
@@ -40,14 +38,13 @@ public class Game extends SpriteSTL
     private static var scnLogin:LoginView;
     private static var scnDialogue:PlotView;
     private static var scnConfig:ConfigView;
-    public function Game()
-    {
+
+    public function Game() {
         // nothing to do here -- Startup will call "start" immediately.
-        _this=this;
+        _this = this;
     }
 
-    public function start(asset:AssetManager):void
-    {
+    public function start(asset:AssetManager):void {
         _starlingContext = new GameContext(this);
         new MetalWorksMobileTheme(this.stage);
 //			this.theme.setInitializerForClass(
@@ -71,65 +68,56 @@ public class Game extends SpriteSTL
 //			mLoadingProgress.y = background.height * 0.7;
 //			addChild(mLoadingProgress);
 
-        asset.loadQueue(function(ratio:Number):void
-        {
+        asset.loadQueue(function (ratio:Number):void {
 //				mLoadingProgress.ratio = ratio;
             // a progress bar should always show the 100% for a while,
             // so we show the main menu only after a short delay.
             if (ratio == 1)
-                Starling.juggler.delayCall(function():void
-                {
+                Starling.juggler.delayCall(function ():void {
 //						mLoadingProgress.removeFromParent(true);
 //						mLoadingProgress = null;
-                    showMainMenu();
+                    showLoginView();
                 }, 0.15);
         });
+        Starling.current.nativeStage.addEventListener(MouseEvent.RIGHT_CLICK, onRightClick);
+        Starling.current.nativeStage.addEventListener(MouseEvent.CLICK, onClick);
 
-
-//			new DialogueView(this);
-
-        addEventListener(Event.TRIGGERED, onButtonTriggered);
+//        addEventListener(Event.TRIGGERED, onButtonTriggered);
         stage.addEventListener(KeyboardEvent.KEY_DOWN, onKey);
-
     }
 
-    private function showMainMenu():void
-    {
+    private function onRightClick(e:MouseEvent):void {
+        _starlingContext.dispatchEvent(new GameEvent(GameEvent.APP_INPUT_RIGHT));
+        trace(this, "Game onRightClick");
+    }
+
+    private function onClick(e:MouseEvent):void {
+        _starlingContext.dispatchEvent(new GameEvent(GameEvent.APP_INPUT_LEFT));
+        trace(this, "Game onClick");
+    }
+
+    private function showLoginView():void {
 //			if (mMainMenu == null)
 //				mMainMenu = new MainMenu();
 //			
 //			addChild(mMainMenu);
-        scnLogin=new LoginView(this);
+        scnLogin = new LoginView(this);
     }
 
-    private function onKey(event:KeyboardEvent):void
-    {
+    private function onKey(event:KeyboardEvent):void {
         if (event.keyCode == Keyboard.SPACE)
             Starling.current.showStats = !Starling.current.showStats;
         else if (event.keyCode == Keyboard.X)
             Starling.context.dispose();
     }
 
-
-    private function onButtonTriggered(event:Event):void
-    {
-        var button:Button = event.target as Button;
-
-        if (button.name == "backButton")
-            closeScene();
-        else
-            showScene(button.name);
-    }
-
-    private function closeScene():void
-    {
+    private function closeScene():void {
         mCurrentScene.removeFromParent(true);
         mCurrentScene = null;
-        showMainMenu();
+        showLoginView();
     }
 
-    private function showScene(name:String):void
-    {
+    private function showScene(name:String):void {
         if (mCurrentScene) return;
         var sceneClass:Class = getDefinitionByName(name) as Class;
         mCurrentScene = new sceneClass() as PlotView;
@@ -137,17 +125,18 @@ public class Game extends SpriteSTL
         addChild(mCurrentScene);
     }
 
-    public static function get assets():AssetManager { return sAssets;}
-    public static function login():void
-    {
-        if(scnLogin)_this.removeChild(scnLogin);
-        scnDialogue=new PlotView(_this);
+    public static function get assets():AssetManager {
+        return sAssets;
     }
-    public static function showConfig():void
-    {
-        if(!scnConfig)
-        {
-            scnConfig=new ConfigView(_this);
+
+    public static function login():void {
+        if (scnLogin)_this.removeChild(scnLogin);
+        scnDialogue = new PlotView(_this);
+    }
+
+    public static function showConfig():void {
+        if (!scnConfig) {
+            scnConfig = new ConfigView(_this);
         }
         scnConfig.show(_this);
     }

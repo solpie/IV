@@ -13,12 +13,12 @@ import org.robotlegs.mvcs.StarlingCommand;
 
 import starling.display.DisplayObject;
 
-public class RightClickCommand extends StarlingCommand {
+public class RightClickCmd extends StarlingCommand {
     [Inject]
     public var model:GameModel;
     [Inject]
     public var event:GameEvent;
-    public function RightClickCommand() {
+    public function RightClickCmd() {
         super();
     }
     override public function execute():void

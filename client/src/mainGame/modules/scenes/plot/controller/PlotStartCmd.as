@@ -15,7 +15,7 @@ import org.osmf.events.PlayEvent;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
-public class PlotStartCommand extends StarlingCommand {
+public class PlotStartCmd extends StarlingCommand {
     [Inject]
     public var model:PlotModel;
     [Inject]
@@ -24,7 +24,7 @@ public class PlotStartCommand extends StarlingCommand {
     [Inject]
     public var event:PlotEvent;
 
-    public function PlotStartCommand() {
+    public function PlotStartCmd() {
         super();
     }
 

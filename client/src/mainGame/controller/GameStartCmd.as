@@ -16,11 +16,11 @@ import mainGame.service.ShareDataService;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
-public class GameStartCommand extends StarlingCommand {
+public class GameStartCmd extends StarlingCommand {
     [Inject]
     public var service:ShareDataService;
 
-    public function GameStartCommand() {
+    public function GameStartCmd() {
         super();
     }
 

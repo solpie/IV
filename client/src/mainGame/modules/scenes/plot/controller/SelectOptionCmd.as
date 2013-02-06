@@ -12,7 +12,7 @@ import mainGame.modules.scenes.plot.model.events.PlotEvent;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
-public class SelectOptionCommand extends StarlingCommand {
+public class SelectOptionCmd extends StarlingCommand {
     [Inject]
     public var model:PlayerModel;
     [Inject]
@@ -21,7 +21,7 @@ public class SelectOptionCommand extends StarlingCommand {
     [Inject]
     public var event:PlotEvent;
 
-    public function SelectOptionCommand() {
+    public function SelectOptionCmd() {
         super();
     }
 

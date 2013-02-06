@@ -12,10 +12,10 @@ import org.robotlegs.mvcs.StarlingCommand;
 
 import starling.display.DisplayObject;
 
-public class LeftClickCommand extends StarlingCommand {
+public class LeftClickCmd extends StarlingCommand {
     [Inject]
     public var model:GameModel;
-    public function LeftClickCommand() {
+    public function LeftClickCmd() {
         super();
     }
 

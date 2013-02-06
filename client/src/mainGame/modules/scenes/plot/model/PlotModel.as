@@ -15,8 +15,8 @@ public class PlotModel extends Actor {
     /**
      *每行最大字数
      */
-    private static const lineLimit:int = 10;
-    private static const numLine:int = 3;
+    private static const lineLimit:int = 50;
+    private static const numLine:int = 4;
     private static const newLineChar:String = "|";
 
 //    private var _dialogue:String = "1234567890The quic|k brown fox jumps over the lazy dog 中文中文是电风扇的发达的法师法上师大神鼎飞丹砂";
@@ -74,8 +74,8 @@ public class PlotModel extends Actor {
             return null;
     }
 
-    public function getPre():String {
-        if (_pagesToReview.length) {
+    public function getPrePage():String {
+        if (_pagesToReview&&_pagesToReview.length) {
             _pagesToShow.push(_pagesToReview.pop());
             return _pagesToShow[_pagesToShow.length - 1];
         }

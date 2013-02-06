@@ -16,13 +16,13 @@ import mainGame.service.ByteArrayService;
 
 import org.robotlegs.mvcs.StarlingCommand;
 
-public class LoadPlotCommand extends StarlingCommand {
+public class LoadPlotCmd extends StarlingCommand {
     [Inject]
     public var plotModel:PlotModel;
     [Inject]
     public var service:ByteArrayService;
 
-    public function LoadPlotCommand() {
+    public function LoadPlotCmd() {
         super();
     }
 

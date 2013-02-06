@@ -1,9 +1,7 @@
 package mainGame.modules.scenes.plot.view {
 
-import ex.Mask4Click;
 import ex.SpriteSTL;
 
-import feathers.controls.Button;
 import feathers.controls.Label;
 
 import mainGame.Constants;
@@ -12,9 +10,7 @@ import mainGame.Game;
 import starling.animation.DelayedCall;
 import starling.display.DisplayObjectContainer;
 import starling.display.Image;
-import starling.display.Quad;
 import starling.events.Event;
-import starling.events.TouchEvent;
 
 public class PlotView extends SpriteSTL {
     //      	private var _dialogueArea:DialogueArea;
@@ -23,7 +19,6 @@ public class PlotView extends SpriteSTL {
     private var _dialogue:Label;
     private var _delayCall:DelayedCall;
     private var _name:Label;//Image
-    public var btnNext:Button;
 
     public var optionView:OptionView;
 //        public var menu:
@@ -55,7 +50,7 @@ public class PlotView extends SpriteSTL {
         addChild(_name);
 
         _dialogue = new Label();
-        _dialogue.width = 120;
+        _dialogue.width = this.width;
         _dialogue.y = dialogueUI.y + 80;
         _dialogue.x = dialogueUI.x + 22;
 //        _dialogue.text="<b><font color='#FFeecc'>1234567890\nThe quick brown fox jumps over the lazy dog</font></b>\n中文中文";
