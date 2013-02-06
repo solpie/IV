@@ -6,7 +6,7 @@ import mainGame.model.GameModel;
 import mainGame.modules.player.model.PlayerModel;
 import mainGame.modules.scenes.plot.model.PlotModel;
 import mainGame.modules.scenes.plot.model.events.PlotEvent;
-import mainGame.modules.scenes.plot.model.vo.EventVO;
+import mainGame.modules.scenes.plot.model.vo.IncidentVO;
 import mainGame.modules.scenes.plot.model.vo.OptionVO;
 import mainGame.modules.scenes.plot.model.vo.PlotVO;
 import mainGame.modules.scenes.plot.view.OptionView;
@@ -73,14 +73,14 @@ public class PlotViewMediator extends StarlingMediator {
     //执行事件
     private function initEventDic():void {
         eventToFunc = new Dictionary();
-        eventToFunc[EventVO.TYPE_DELAY] = e_Delay;
-        eventToFunc[EventVO.TYPE_DIALOGUE] = e_Dialogue;
-        eventToFunc[EventVO.TYPE_OPTION] = e_Option;
-        eventToFunc[EventVO.TYPE_MOTION] = e_Motion;
-        eventToFunc[EventVO.TYPE_CG] = e_CG;
+        eventToFunc[IncidentVO.TYPE_DELAY] = e_Delay;
+        eventToFunc[IncidentVO.TYPE_DIALOGUE] = e_Dialogue;
+        eventToFunc[IncidentVO.TYPE_OPTION] = e_Option;
+        eventToFunc[IncidentVO.TYPE_MOTION] = e_Motion;
+        eventToFunc[IncidentVO.TYPE_CG] = e_CG;
     }
     private function onEventStart(e:PlotEvent):void {
-        var eVO:EventVO = e.payload as EventVO;
+        var eVO:IncidentVO = e.payload as IncidentVO;
         eventToFunc[eVO.type](eVO);
     }
 
@@ -88,11 +88,11 @@ public class PlotViewMediator extends StarlingMediator {
 
     }
 
-    private function e_Delay(eVO:EventVO):void {
+    private function e_Delay(eVO:IncidentVO):void {
         trace(this, "e_Delay");
     }
 
-    private function e_Dialogue(eVO:EventVO):void {
+    private function e_Dialogue(eVO:IncidentVO):void {
         var avatarId:String=eVO.params[0];
         var dialogue:String=eVO.params[1];
         plotModel.layoutDialogue(dialogue);
@@ -101,7 +101,7 @@ public class PlotViewMediator extends StarlingMediator {
         trace(this, "e_Dialogue");
     }
 
-    private function e_Option(eVO:EventVO):void {
+    private function e_Option(eVO:IncidentVO):void {
         if(view.viewOption)
             view.viewOption.dispose();
 
@@ -121,11 +121,11 @@ public class PlotViewMediator extends StarlingMediator {
         dispatch(new PlotEvent(PlotEvent.UPDATE_OPTION, {getTitle: title, getOptionList: optionList}))
         trace(this, "e_Option");
     }
-    private function e_Motion(eVO:EventVO):void {
+    private function e_Motion(eVO:IncidentVO):void {
         dispatch(new PlotEvent(PlotEvent.PLOT_START));
     }
 
-    private function e_CG(eVO:EventVO):void {
+    private function e_CG(eVO:IncidentVO):void {
             dispatch(new PlotEvent(PlotEvent.PLOT_START));
     }
 }

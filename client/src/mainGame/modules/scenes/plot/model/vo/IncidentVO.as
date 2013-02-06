@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package mainGame.modules.scenes.plot.model.vo {
-public class EventVO {
+public class IncidentVO {
     public static const TYPE_DELAY:int = 0;
     public static const TYPE_DIALOGUE:int = 1;
     public static const TYPE_OPTION:int = 2;
@@ -31,7 +31,7 @@ public class EventVO {
     {
         return _pId;
     }
-    public function EventVO() {
+    public function IncidentVO() {
     }
 }
 }

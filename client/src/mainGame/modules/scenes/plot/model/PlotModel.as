@@ -1,7 +1,7 @@
 package mainGame.modules.scenes.plot.model {
 import flash.utils.Dictionary;
 
-import mainGame.modules.scenes.plot.model.vo.EventVO;
+import mainGame.modules.scenes.plot.model.vo.IncidentVO;
 
 import mainGame.modules.scenes.plot.model.vo.PlotVO;
 
@@ -87,7 +87,7 @@ public class PlotModel extends Actor {
         return __plotDic[pId];
     }
 
-    public function setEvent(eId:int, eVO:EventVO):void {
+    public function setEvent(eId:int, eVO:IncidentVO):void {
         __eventDic[eId] = eVO;
         var pVO:PlotVO=getPlotVO(eVO.plotId);
         pVO.eventList.push(eVO);

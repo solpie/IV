@@ -9,7 +9,7 @@ package mainGame.controller {
 import config.EmbededPlot;
 
 import mainGame.modules.scenes.plot.model.PlotModel;
-import mainGame.modules.scenes.plot.model.vo.EventVO;
+import mainGame.modules.scenes.plot.model.vo.IncidentVO;
 import mainGame.modules.scenes.plot.model.vo.PlotVO;
 
 import org.robotlegs.mvcs.StarlingCommand;
@@ -46,9 +46,9 @@ public class LoadPlotCommand extends StarlingCommand {
 
     private function loadEvent():void {
         var eventXML:XML = new XML(embedPlot.eventXML);
-        var eventVO:EventVO;
+        var eventVO:IncidentVO;
         for each(var item:Object in eventXML.children()) {
-            eventVO = new EventVO();
+            eventVO = new IncidentVO();
             eventVO.id = item.@id;
             eventVO.type = item.@type;
             eventVO.params = item.@params.split("-");
