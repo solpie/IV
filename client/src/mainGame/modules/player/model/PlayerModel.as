@@ -19,8 +19,7 @@ public class PlayerModel extends Actor {
     //剧情信息
     public var currentPlot:int=10001;
     public var endPlotList:Array;
-
-    //n 周目 todo 根据 n周目和选项的id判断要不要显示选项
+    //n 周目
     public var round:int = 1;
     public function PlayerModel() {
         super();

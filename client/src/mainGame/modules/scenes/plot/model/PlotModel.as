@@ -33,8 +33,6 @@ public class PlotModel extends Actor {
         super();
         __plotDic = new Dictionary();
         __eventDic = new Dictionary();
-        //test
-//        layoutDialogue();
     }
     //对话内容分页
     public function layoutDialogue(dialogue:String):void {
@@ -42,6 +40,7 @@ public class PlotModel extends Actor {
         var lines:Array = new Array();
         var strIdx:String = "";
         _pagesToShow = new Array();
+        _currentPageIdx=0;
         for (var i:int = 0; i < dialogue.length; i++) {
             strIdx = dialogue.charAt(i)
             if (strIdx != newLineChar)

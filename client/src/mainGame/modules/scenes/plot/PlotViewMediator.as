@@ -23,7 +23,7 @@ public class PlotViewMediator extends StarlingMediator {
     [Inject]
     public var model:GameModel;
     [Inject]
-    public var modelPlayer:PlayerModel;
+    public var playerModel:PlayerModel;
     [Inject]
     public var plotModel:PlotModel;
 
@@ -48,7 +48,7 @@ public class PlotViewMediator extends StarlingMediator {
         //初始化事件处理
         initEventDic();
         //开始最初剧情
-        dispatch(new PlotEvent(PlotEvent.PLOT_START, modelPlayer.currentPlot));
+        dispatch(new PlotEvent(PlotEvent.PLOT_START, playerModel.currentPlot));
     }
 
     private function onRightClickBg():void {
@@ -122,6 +122,8 @@ public class PlotViewMediator extends StarlingMediator {
         var pVO:PlotVO;
         for each(var pId:int in eVO.params) {
             pVO = plotModel.getPlotVO(pId);
+            //n+周目剧情过滤
+            if(int(pVO.id/10000)>playerModel.round)continue;
             optionList.push(new OptionVO(pVO.title, pVO.id));
         }
 

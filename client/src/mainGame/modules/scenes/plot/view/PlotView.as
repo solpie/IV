@@ -31,6 +31,8 @@ public class PlotView extends SpriteSTL {
 
     private function test():void {
         optionView = new OptionView(this);
+
+
     }
     private function init():void {
         _avatar = new Avatar();
@@ -38,8 +40,6 @@ public class PlotView extends SpriteSTL {
         _avatar.x = 300;
 //        addChild(_avatar);
 
-//        var o:Object=new Image(Game.assets.getTexture(Constants.UI_DIALOGUE));
-//        dialogueUI = new Image(Game.assets.getTexture(Constants.UI_DIALOGUE));
         dialogueUI.y = 400;
         addChild(dialogueUI);
 
@@ -55,7 +55,6 @@ public class PlotView extends SpriteSTL {
         _dialogue.y = dialogueUI.y + 80;
         _dialogue.x = dialogueUI.x + 22;
 //        _dialogue.text="<b><font color='#FFeecc'>1234567890\nThe quick brown fox jumps over the lazy dog</font></b>\n中文中文";
-
         addChild(_dialogue);
 
         _delayCall = new DelayedCall(onTick, 0.4);
