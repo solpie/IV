@@ -66,7 +66,7 @@ public class PlotModel extends Actor {
     }
 
     public function getNextPage():String {
-        if (_pagesToShow.length) {
+        if (_pagesToShow&&_pagesToShow.length) {
             _pagesToReview.push(_pagesToShow.shift());
             return _pagesToReview[_pagesToReview.length - 1];
         }
@@ -87,7 +87,7 @@ public class PlotModel extends Actor {
         return __plotDic[pId];
     }
 
-    public function setEvent(eId:int, eVO:IncidentVO):void {
+    public function setIncident(eId:int, eVO:IncidentVO):void {
         __eventDic[eId] = eVO;
         var pVO:PlotVO=getPlotVO(eVO.plotId);
         pVO.eventList.push(eVO);

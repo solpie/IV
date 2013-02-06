@@ -32,7 +32,7 @@ public class OptionView extends SpriteSTL {
     private var _textToFunc:Dictionary;
     private var this_:OptionView;
 
-    private const contentX:int;
+//    private const contentX:int;
     public function OptionView(parent:DisplayObjectContainer = null) {
         super(parent);
         init();
@@ -84,7 +84,7 @@ public class OptionView extends SpriteSTL {
         clear();
     }
 
-    private function clear():void {
+    public function clear():void {
         //FIXME
 //        _textToFunc=null;
         this.removeChildren(0,-1,true);

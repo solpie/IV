@@ -14,7 +14,12 @@ import mainGame.modules.scenes.plot.view.PlotView;
 
 import org.robotlegs.mvcs.StarlingMediator;
 
+import starling.display.DisplayObject;
+
+import starling.display.Image;
+
 import starling.events.Event;
+import starling.events.TouchEvent;
 
 public class PlotViewMediator extends StarlingMediator {
     [Inject]
@@ -34,24 +39,23 @@ public class PlotViewMediator extends StarlingMediator {
 
     override public function onRegister():void {
         //event to view
-        eventMap.mapListener(eventDispatcher, PlotEvent.DIALOGUE_NEXT_PAGE, onUpdateDialogue);
+        eventMap.mapListener(eventDispatcher, PlotEvent.DIALOGUE_SHOW_PAGE, onUpdateDialogue);
         eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_START, onEventStart);
         eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_END, onEventEnd);
         //view to event
-        view.addEventListener(Event.COMPLETE, onDialogueClick);
+//        view.addEventListener(Event.COMPLETE, onDialogueClick);
+        eventMap.mapStarlingListener(view.dialogueUI,TouchEvent.TOUCH,onDialogueClick);
         //right click
-        model.addRightClickHandle(view.dialogueMask, onRightClickBg);
+//        model.addRightClickHandle(view.dialogueMask, onRightClickBg);
+        model.addRightClickHandle(view.dialogueUI as DisplayObject, onRightClickBg);
         //初始化事件处理
         initEventDic();
         //开始最初剧情
         dispatch(new PlotEvent(PlotEvent.PLOT_START, modelPlayer.currentPlot));
     }
 
-
-
-
     private function onRightClickBg():void {
-        trace(this, " 弹出右键菜单");
+        trace(this, "右键对话框 弹出右键菜单");
         Game.showConfig();
     }
 
@@ -85,7 +89,7 @@ public class PlotViewMediator extends StarlingMediator {
     }
 
     private function onEventEnd():void {
-
+        dispatch(new PlotEvent(PlotEvent.PLOT_START));
     }
 
     private function e_Delay(eVO:IncidentVO):void {
@@ -102,8 +106,8 @@ public class PlotViewMediator extends StarlingMediator {
     }
 
     private function e_Option(eVO:IncidentVO):void {
-        if(view.viewOption)
-            view.viewOption.dispose();
+        if(view.optionView)
+            view.optionView.clear();
 
         new OptionView(view);
         var title:String;
@@ -122,11 +126,11 @@ public class PlotViewMediator extends StarlingMediator {
         trace(this, "e_Option");
     }
     private function e_Motion(eVO:IncidentVO):void {
-        dispatch(new PlotEvent(PlotEvent.PLOT_START));
+        onEventEnd();
     }
 
     private function e_CG(eVO:IncidentVO):void {
-            dispatch(new PlotEvent(PlotEvent.PLOT_START));
+           onEventEnd();
     }
 }
 }

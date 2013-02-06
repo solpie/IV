@@ -1,6 +1,5 @@
 package
 {
-import config.EmbededPlot;
 
 import flash.display.Sprite;
 import flash.display.StageAlign;

@@ -1,15 +1,13 @@
-package mainGame.modules.scenes.plot.view
-{
+package mainGame.modules.scenes.plot.view {
 
+import ex.Mask4Click;
 import ex.SpriteSTL;
 
 import feathers.controls.Button;
 import feathers.controls.Label;
 
 import mainGame.Constants;
-
 import mainGame.Game;
-import mainGame.modules.scenes.plot.model.PlotModel;
 
 import starling.animation.DelayedCall;
 import starling.display.DisplayObjectContainer;
@@ -18,22 +16,18 @@ import starling.display.Quad;
 import starling.events.Event;
 import starling.events.TouchEvent;
 
-public class PlotView extends SpriteSTL
-{
+public class PlotView extends SpriteSTL {
     //      	private var _dialogueArea:DialogueArea;
     private var _avatar:Avatar;
-    public var dialogueMask:Quad=new Quad(1,1);
-    private var dialogueUI:Image;
+    public var dialogueUI:Image=new Image(Game.assets.getTexture(Constants.UI_DIALOGUE));
     private var _dialogue:Label;
     private var _delayCall:DelayedCall;
     private var _name:Label;//Image
     public var btnNext:Button;
 
-    public var viewOption:OptionView;
+    public var optionView:OptionView;
 //        public var menu:
-    //		private var _dialogue:
-    public function PlotView(parent:DisplayObjectContainer=null)
-    {
+    public function PlotView(parent:DisplayObjectContainer = null) {
         super(parent);
         init();
         addListener();
@@ -41,81 +35,64 @@ public class PlotView extends SpriteSTL
     }
 
     private function test():void {
-        viewOption=new OptionView(this);
+        optionView = new OptionView(this);
     }
-
-
-    //
-    private function addListener():void {
-        this.addEventListener(Event.TRIGGERED,onClick);
-//        background.addEventListener(Event.TRIGGERED,onClick);
-    }
-
-    private function init():void
-    {
-        _avatar=new Avatar();
-        _avatar.y=-200;
-        _avatar.x=300;
+    private function init():void {
+        _avatar = new Avatar();
+        _avatar.y = -200;
+        _avatar.x = 300;
 //        addChild(_avatar);
 
-        dialogueUI=new Image(Game.assets.getTexture(Constants.UI_DIALOGUE));
+//        var o:Object=new Image(Game.assets.getTexture(Constants.UI_DIALOGUE));
+//        dialogueUI = new Image(Game.assets.getTexture(Constants.UI_DIALOGUE));
         dialogueUI.y = 400;
         addChild(dialogueUI);
 
-        dialogueMask.y=dialogueUI.y;
-        dialogueMask.x = dialogueUI.x;
-        dialogueMask.width=dialogueUI.width;
-        dialogueMask.height=dialogueUI.height;
-        dialogueMask.alpha=0;
-        addChild(dialogueMask);
-
-        _name=new Label();
-        _name.text="Name";
-        _name.y=dialogueMask.y+22;
-        _name.x=dialogueMask.x+52;
+        _name = new Label();
+        _name.text = "Name";
+        _name.y = dialogueUI.y + 22;
+        _name.x = dialogueUI.x + 52;
         addChild(_name);
 
-        _dialogue=new Label();
-        _dialogue.width=120;
-        _dialogue.y=dialogueMask.y+80;
-        _dialogue.x=dialogueMask.x+22;
-        _dialogue.text="<b><font color='#FFeecc'>1234567890\nThe quick brown fox jumps over the lazy dog</font></b>\n中文中文";
+        _dialogue = new Label();
+        _dialogue.width = 120;
+        _dialogue.y = dialogueUI.y + 80;
+        _dialogue.x = dialogueUI.x + 22;
+//        _dialogue.text="<b><font color='#FFeecc'>1234567890\nThe quick brown fox jumps over the lazy dog</font></b>\n中文中文";
 
         addChild(_dialogue);
 
-        _delayCall=new DelayedCall(onTick,0.4);
+        _delayCall = new DelayedCall(onTick, 0.4);
     }
 
-    public function updateDialogue(text:String,avatarId:String):void
-    {
-        _dialogue.text=text;
+    private function addListener():void {
+//        this.addEventListener(Event.TRIGGERED, onClick);
+//        dialogueMask.addEventListener(TouchEvent.TOUCH, onClick);
     }
 
-    private function onTick():void
-    {
-        _dialogue.text+=_dialogue.text.length.toString();
+    public function updateDialogue(text:String, avatarId:String):void {
+        _dialogue.text = text;
     }
 
-    private function onRightClick(e:*):void
-    {
-        trace(this,"onRightClick");
+    private function onTick():void {
+        _dialogue.text += _dialogue.text.length.toString();
     }
-    private function onClick(e:*):void
-    {
+
+    private function onRightClick(e:*):void {
+        trace(this, "onRightClick");
+    }
+
+    private function onClick(e:*):void {
 //			_delayCall.reset(onTick,0.4);
 //			_delayCall.repeatCount=10;
 //			Starling.juggler.add(_delayCall);
         dispatchEvent(new Event(Event.COMPLETE));
     }
-    private function onOut(e:TouchEvent):void
-    {
-
-    }
 
     public function updateAvatar(avatarId:String):void {
         //todo get avatar
         return;
-        if(_avatar.id!=avatarId)
+        if (_avatar.id != avatarId)
             _avatar.setLihui(avatarId);
         else
             _avatar.setLihui("logo");

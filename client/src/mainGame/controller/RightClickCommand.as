@@ -23,13 +23,11 @@ public class RightClickCommand extends StarlingCommand {
     }
     override public function execute():void
     {
-        for each(var obj:DisplayObject in modol.rightTouchList)
+        for each(var obj:DisplayObject in modol.rightTouchDic)
         {
-            if(obj.bounds.contains(event.payload.x,event.payload.y))
-            {
-                trace(this, "right click on ",obj);
-                (modol.rightTouchFunc[obj] as Function)();
-            }
+            trace(this, "right click on ",obj);
+            var func:Object=  modol.rightTouchFunc[obj];
+            if(func)(func as Function)();
         }
     }
 }

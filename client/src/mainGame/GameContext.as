@@ -1,7 +1,5 @@
 package mainGame {
 
-import config.EmbededPlot;
-
 import flash.events.MouseEvent;
 import flash.geom.Point;
 
@@ -67,8 +65,6 @@ public class GameContext extends StarlingContext {
         //service
         injector.mapSingleton(ByteArrayService);
         injector.mapSingleton(ShareDataService);
-        //embed
-        injector.mapSingleton(EmbededPlot);
     }
 
     private function mapView():void {
