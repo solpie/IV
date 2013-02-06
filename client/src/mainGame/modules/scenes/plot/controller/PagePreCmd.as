@@ -22,7 +22,7 @@ public class PagePreCmd extends StarlingCommand {
     override public function execute():void {
         var strPage:String = model.getPrePage();
         dispatch(new PlotEvent(PlotEvent.DIALOGUE_SHOW_PAGE, strPage));
-        trace(this, "DialoguePrePageCmd", strPage);
+        trace(this, "PagePreCmd", strPage);
     }
 }
 }

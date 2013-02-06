@@ -16,7 +16,7 @@ public class PageNextCmd extends StarlingCommand {
         var strPage:String = model.getNextPage();
         dispatch(new PlotEvent(PlotEvent.DIALOGUE_SHOW_PAGE, strPage));
 //			model.getNext();
-        trace(this, "DialogueCommand", strPage);
+        trace(this, "PageNextCmd", strPage);
     }
 
 }
