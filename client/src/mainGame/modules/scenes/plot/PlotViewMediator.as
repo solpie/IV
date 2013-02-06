@@ -44,10 +44,10 @@ public class PlotViewMediator extends StarlingMediator {
         eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_END, onEventEnd);
         //view to event
 //        view.addEventListener(Event.COMPLETE, onDialogueClick);
-        eventMap.mapStarlingListener(view.dialogueUI,TouchEvent.TOUCH,onDialogueClick);
+        eventMap.mapStarlingListener(view.dialogueUI,Event.TRIGGERED,onDialogueClick);
         //right click
-//        model.addRightClickHandle(view.dialogueMask, onRightClickBg);
-        model.addRightClickHandle(view.dialogueUI as DisplayObject, onRightClickBg);
+        model.addRightClickHandle(view.dialogueUI, onRightClickBg);
+        model.addLeftClickHandle(view.dialogueUI, onDialogueClick);
         //初始化事件处理
         initEventDic();
         //开始最初剧情
@@ -69,7 +69,7 @@ public class PlotViewMediator extends StarlingMediator {
         view.updateDialogue(str, "background");
     }
 
-    private function onDialogueClick(e:*):void {
+    private function onDialogueClick():void {
         dispatch(new PlotEvent(PlotEvent.DIALOGUE_END));
         trace(this, "onDialogueClick end");
     }

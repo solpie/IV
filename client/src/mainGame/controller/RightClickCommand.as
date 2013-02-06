@@ -15,7 +15,7 @@ import starling.display.DisplayObject;
 
 public class RightClickCommand extends StarlingCommand {
     [Inject]
-    public var modol:GameModel;
+    public var model:GameModel;
     [Inject]
     public var event:GameEvent;
     public function RightClickCommand() {
@@ -23,10 +23,10 @@ public class RightClickCommand extends StarlingCommand {
     }
     override public function execute():void
     {
-        for each(var obj:DisplayObject in modol.rightTouchDic)
+        for each(var obj:DisplayObject in model.rightTouchDic)
         {
             trace(this, "right click on ",obj);
-            var func:Object=  modol.rightTouchFunc[obj];
+            var func:Object=  model.rightTouchFunc[obj];
             if(func)(func as Function)();
         }
     }

@@ -9,7 +9,6 @@ public class SpriteSTL extends Sprite
 		{
 			super();
 			if(parent)parent.addChild(this);
-
 		}
 	}
 }

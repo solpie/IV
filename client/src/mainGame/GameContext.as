@@ -4,6 +4,7 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 
 import mainGame.controller.GameStartCommand;
+import mainGame.controller.LeftClickCommand;
 import mainGame.controller.LoadPlotCommand;
 import mainGame.controller.RightClickCommand;
 import mainGame.model.GameModel;
@@ -45,13 +46,18 @@ public class GameContext extends StarlingContext {
         mapService();
         dispatchEvent(new GameEvent(GameEvent.APP_STARTUP, "start up"));
         Starling.current.nativeStage.addEventListener(MouseEvent.RIGHT_CLICK, onRightClick);
+        Starling.current.nativeStage.addEventListener(MouseEvent.CLICK, onClick);
         trace("[Context]App Start up");
         super.startup();
     }
 
     private function onRightClick(e:MouseEvent):void {
-        dispatchEvent(new GameEvent(GameEvent.APP_INPUT_RIGHT, new Point(e.localX, e.localY)));
-        trace(this, "onRightClick");
+        dispatchEvent(new GameEvent(GameEvent.APP_INPUT_RIGHT));
+        trace(this, "Game onRightClick");
+    }
+    private function onClick(e:MouseEvent):void {
+        dispatchEvent(new GameEvent(GameEvent.APP_INPUT_LEFT));
+        trace(this, "Game onClick");
     }
 
     private function mapMembership():void {
@@ -78,6 +84,7 @@ public class GameContext extends StarlingContext {
     private function mapController():void {
         commandMap.mapEvent(GameEvent.APP_STARTUP, GameStartCommand);
         commandMap.mapEvent(GameEvent.APP_INPUT_RIGHT, RightClickCommand);
+        commandMap.mapEvent(GameEvent.APP_INPUT_LEFT, LeftClickCommand);
 
         commandMap.mapEvent(GameEvent.LOAD_PLOT, LoadPlotCommand);
 
