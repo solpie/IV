@@ -5,6 +5,8 @@ import mainGame.modules.scenes.plot.model.vo.IncidentVO;
 
 import mainGame.modules.scenes.plot.model.vo.PlotVO;
 
+import org.osmf.elements.compositeClasses.SerialElementSegment;
+
 import org.robotlegs.mvcs.Actor;
 
 public class PlotModel extends Actor {
@@ -25,7 +27,7 @@ public class PlotModel extends Actor {
     private var __eventDic:Dictionary;
 
     private var _pagesToShow:Array;
-    private var _currentPageIdx:int;
+    private var _currentPageIdx:int = -1;
 
     public var currentPlotVO:PlotVO;
 
@@ -34,13 +36,14 @@ public class PlotModel extends Actor {
         __plotDic = new Dictionary();
         __eventDic = new Dictionary();
     }
+
     //对话内容分页
     public function layoutDialogue(dialogue:String):void {
         var line:String = "";
         var lines:Array = new Array();
         var strIdx:String = "";
         _pagesToShow = new Array();
-        _currentPageIdx=0;
+        _currentPageIdx = -1;
         for (var i:int = 0; i < dialogue.length; i++) {
             strIdx = dialogue.charAt(i)
             if (strIdx != newLineChar)
@@ -58,25 +61,23 @@ public class PlotModel extends Actor {
         if (line != "") {
             lines.push(line);
             line = "";
-            _pagesToShow.push(lines.concat());
+            _pagesToShow.push(lines.toString());
             lines.length = 0;
         }
     }
 
     public function getNextPage():String {
-        if (_pagesToShow&&_currentPageIdx<_pagesToShow.length-1) {
-            return _pagesToShow[_currentPageIdx++];
-        }
-        else
-            return null;
+        trace(this, "当前页数", _currentPageIdx);
+        if (_currentPageIdx < _pagesToShow.length - 1)
+            _currentPageIdx++;
+        return _pagesToShow[_currentPageIdx];
     }
 
     public function getPrePage():String {
-        if (_pagesToShow&&_currentPageIdx>0) {
-            return _pagesToShow[_currentPageIdx--];
-        }
-        else
-            return null;
+        trace(this, "当前页数", _currentPageIdx - 1);
+        if (_currentPageIdx > 0)
+            _currentPageIdx--;
+        return _pagesToShow[_currentPageIdx];
     }
 
     public function getPlotVO(pId:int):PlotVO {
@@ -85,7 +86,7 @@ public class PlotModel extends Actor {
 
     public function setIncident(eId:int, eVO:IncidentVO):void {
         __eventDic[eId] = eVO;
-        var pVO:PlotVO=getPlotVO(eVO.plotId);
+        var pVO:PlotVO = getPlotVO(eVO.plotId);
         pVO.eventList.push(eVO);
     }
 

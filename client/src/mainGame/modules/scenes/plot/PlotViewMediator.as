@@ -40,7 +40,7 @@ public class PlotViewMediator extends StarlingMediator {
         eventMap.mapListener(eventDispatcher, PlotEvent.EVENT_END, onEventEnd);
         //view to event
 //        view.addEventListener(Event.COMPLETE, onDialogueClick);
-        eventMap.mapStarlingListener(view.dialogueUI, Event.TRIGGERED, onDialogueClick);
+//        eventMap.mapStarlingListener(view.dialogueUI, Event.TRIGGERED, onDialogueClick);
         //right click
         model.addRightClickHandle(view.dialogueUI, onRightClickBg);
         model.addLeftClickHandle(view.dialogueUI, onDialogueClick);
@@ -63,7 +63,7 @@ public class PlotViewMediator extends StarlingMediator {
 
     private function onDialogueWheel(e:GameEvent):void {
         var delta:int = int(e.payload);
-        if (delta < 0)
+        if (delta > 0)
             dispatch(new PlotEvent(PlotEvent.DIALOGUE_PRE));
         else
             dispatch(new PlotEvent(PlotEvent.DIALOGUE_END));
