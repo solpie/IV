@@ -26,6 +26,7 @@ public class PlotModel extends Actor {
     private var __plotDic:Dictionary;
     private var __eventDic:Dictionary;
 
+    //todo 分支表处理
     private var _pagesToShow:Array;
     private var _currentPageIdx:int = -1;
 

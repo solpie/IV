@@ -26,6 +26,7 @@ public class SelectOptionCmd extends StarlingCommand {
     }
 
     override public function execute():void {
+        //todo 判断分支
         var plotId:int = int(event.payload);
         model.selectPlot(plotId);
         //清除当前剧情数据
