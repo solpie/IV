@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
+  <event id="1000101" params="图片id" type="4" />
   <event id="1000102" params="10002-10003-需要酒吗？" type="2" />
   <event id="1000201" params="10004-10005-要去哪里？" type="2" />
   <event id="1000301" params="1-0" type="6" />

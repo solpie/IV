@@ -21,7 +21,6 @@ folder = "out/"
 def main():
     wb = xlrd.open_workbook(excelUrl)
     write2xml(wb, shPlot, 1, plotSheet.getEcMap(), 'plot', folder + "plot.xml")
-
     write2xml(wb, shEvent, 22, eventSheet.getEcMap(), 'event', folder + "event.xml")
     pass
 
@@ -82,7 +81,6 @@ def write2xml(wb, sheetName, startRow, ecMap, xmlElement, url):
                 pass
             if ecMap[idx]['column'] != '':
                 pass
-            # df
             if 0:
                 pass
             else:
