@@ -19,11 +19,16 @@ public class ShareDataService extends Actor implements IServer{
     }
 
     public function savePlayerInfo(pInfo:PlayerModel):void {
+        //todo  保存哪些数据
         var s:SharedObject=SharedObject.getLocal(pInfo.name);
 //        var s:SharedObject=SharedObject.getRemote("PlayerInfo");
         s.data.name = pInfo.name;
         s.flush();
         trace(this,"savePlayerInfo");
+    }
+
+    public function saveShareObject(shareObj:SharedObject):void {
+
     }
 }
 }

@@ -35,7 +35,5 @@ public class PlayerModel extends Actor {
         endPlotList.push(currentPlot);
         currentPlot=pId;
     }
-
-
 }
 }

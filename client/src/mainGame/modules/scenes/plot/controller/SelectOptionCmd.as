@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package mainGame.modules.scenes.plot.controller {
+import mainGame.model.events.GameEvent;
 import mainGame.modules.player.model.PlayerModel;
 import mainGame.modules.scenes.plot.model.PlotModel;
 import mainGame.modules.scenes.plot.model.events.PlotEvent;
@@ -33,6 +34,7 @@ public class SelectOptionCmd extends StarlingCommand {
         modelPlot.clearCurrentPlot();
         trace(this, "select option command plot id:", plotId);
         dispatch(new PlotEvent(PlotEvent.PLOT_START,plotId));
+        dispatch(new GameEvent(GameEvent.SAVE_INFO))
     }
 }
 }

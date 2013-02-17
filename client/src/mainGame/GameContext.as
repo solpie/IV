@@ -1,5 +1,6 @@
 package mainGame {
 
+import mainGame.controller.GameSaveCmd;
 import mainGame.controller.GameStartCmd;
 import mainGame.controller.LeftClickCmd;
 import mainGame.controller.LoadPlotCmd;
@@ -71,6 +72,7 @@ public class GameContext extends StarlingContext {
 
     private function mapController():void {
         commandMap.mapEvent(GameEvent.APP_STARTUP, GameStartCmd);
+        commandMap.mapEvent(GameEvent.SAVE_INFO, GameSaveCmd);
         commandMap.mapEvent(GameEvent.INPUT_MOUSE_RIGHT, RightClickCmd);
         commandMap.mapEvent(GameEvent.INPUT_MOUSE_LEFT, LeftClickCmd);
         commandMap.mapEvent(GameEvent.INPUT_MOUSE_WHEEL, WheelCmd);
